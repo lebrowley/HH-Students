@@ -1,68 +1,63 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Project Plan
 
-In the project directory, you can run:
+### Idea and Users
 
-### `npm start`
+- What is the purpose of this app?
+    - Hungry Hungry Students (HH-Students) is an app meant to help centralize food options on campus for busy (and hungry) students. It is also a platform where food truck owners can make their businesses available to students on campus.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- What are the problems your app is solving?
+    - HH-Students will help eliminate long lines at food trucks during lunch time so students can get food quickly.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+- How does it solve those problems?
+    - Through HH-Students, students can order their food from an on-campus food truck online and then pick up their food when it's ready on their way to their next class or meeting. They can also save past orders so that ordering their lunch is even more streamlined and quick.
 
-### `npm test`
+- Who is your target user?
+    - University students.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- How much experience do they have with technology?
+    - Moderate
 
-### `npm run build`
+### Features
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+MVP
+<ul>
+<li>login, logout, register a new account</li>
+<li>select items from any menu to make a food order</li>
+<li>confirm and pay for orders</li>
+<li>save favorite orders</li>
+<li>reorder saved favorite orders</li>
+</ul>
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+Icebox features
+<ul>
+<li>see order history</li>
+<li>a food truck owner version where they can manage their menus, receive orders and send notifications for completed orders</li>
+</ul>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Views/Routes
+- login view (/)
+<img src='./images/views/login.png'>
+- menu dashboard view (/dashboard)
+<img src='./images/views/dashboard.png'>
+- individual menu view (/menu${name}) (6 total)
+<img src='./images/views/menu.png'>
+<img src='./images/views/menu_withcart.png'>
+- checkout view (/pay)
+<img src='./images/views/checkout.png'>
+- orders view (/myorders)
+<img src='./images/views/my_orders.png'>
 
-### `npm run eject`
+### Component Tree
+<img src='./images/component_tree.png'>
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Endpoints/Controllers
+<img src='./images/endpoints.png'>
+<img src='./images/controllers.png'>
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Schemas/Queries/Database
+<img src='./images/schemas_queries.png'>
+<img src='./images/database.png'>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
