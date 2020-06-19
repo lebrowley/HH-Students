@@ -3,8 +3,8 @@ const express = require('express'),
       session = require('express-session'),
       massive = require('massive'),
       app = express(),
-      {SERVER_PORT, CONNECTION_STRING, SESSION_SECRET} = process.env
-      //require controllers
+      {SERVER_PORT, CONNECTION_STRING, SESSION_SECRET} = process.env,
+      authCtrl = require('./controllers/authControl')
 
 //Top-level Middleware
 app.use(express.json())
@@ -17,6 +17,10 @@ app.use(session({
 
 //Endpoints
 //authentication
+app.post('/auth/register', authCtrl.register)
+app.post('/auth/login', authCtrl.login)
+app.delete('/auth/logout', authCtrl.logout)
+app.get('/auth/user', authCtrl.getUser)
 
 //menus
 

@@ -1,12 +1,20 @@
 import React from 'react';
+import routes from './routes';
+import { connect } from 'react-redux';
+import Nav from './components/Nav';
+//import Cart from './components/Cart';
 import './App.css';
 
-function App() {
+function App(props) {
+  //hook for componentDidMount(getUser)
   return (
     <div className="App">
-      
+      {props.auth.isLoggedIn ? <Nav/> : null}
+      {/*props.cart.cartOpen ? <Cart /> : null */}
+      {routes}
     </div>
   );
 }
 
-export default App;
+const mapStateToProps = reduxState => reduxState
+export default connect(mapStateToProps)(App);
