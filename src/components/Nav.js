@@ -20,7 +20,7 @@ function Nav(props) {
 
             <div className='nav-links'>
                 <Link to='/dashboard'><p>Food Trucks</p></Link>
-                <p>My Orders</p>
+                <Link to='/myorders'><p>My Orders</p></Link>
 
                 <button onClick={() => logout()}>Logout</button>
 

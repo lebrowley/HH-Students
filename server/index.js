@@ -4,7 +4,8 @@ const express = require('express'),
       massive = require('massive'),
       app = express(),
       {SERVER_PORT, CONNECTION_STRING, SESSION_SECRET} = process.env,
-      authCtrl = require('./controllers/authControl')
+      authCtrl = require('./controllers/authControl'),
+      menuCtrl = require('./controllers/menuControl')
 
 //Top-level Middleware
 app.use(express.json())
@@ -23,6 +24,8 @@ app.delete('/auth/logout', authCtrl.logout)
 app.get('/auth/user', authCtrl.getUser)
 
 //menus
+app.get('/api/menus', menuCtrl.getMenus)
+app.get('/api/menu', menuCtrl.getMenu)
 
 //orders
 

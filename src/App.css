@@ -6,6 +6,7 @@
     text-align: center;
     vertical-align: baseline;
     border: 0;
+    
 }
 
 /* Auth.js */
@@ -24,5 +25,42 @@
 }
 
 /* Dash.js */
+.dashboard-component {
+    height: 100vh;
+    background: #D9EDF7;
+    position: absolute;
+    margin-left: 125px;
+    width: 100vw;
+    top: 0px;
+}
+
+.food-trucks-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    align-content: space-around;
+    width: 1000px;
+}
+
+.food-truck-bubble {
+    box-sizing: border-box;
+    border: 3px solid #005261;
+    background: #FFFFFF;
+    border-radius: 50%;
+    height: 100px;
+    width: 100px;
+    display: flex;
+    align-items: center;
+}
 
 /* Menu.js */
+
+.menu-component {
+    height: 100vh;
+    background: #D9EDF7;
+    position: absolute;
+    margin-left: 125px;
+    width: 100vw;
+    top: 0px;
+}
