@@ -9,8 +9,9 @@ module.exports = {
 
     getMenu: (req, res) => {
         const dbInstance = req.app.get('db')
+        const {menuId} = req.params
 
-        dbInstance.get_menu_info()
+        dbInstance.get_menu_info([menuId])
         .then(menu => res.status(200).send(menu))
         .catch(err => res.status(500).send(err))
     }

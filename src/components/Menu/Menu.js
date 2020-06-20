@@ -2,13 +2,14 @@ import React, { Component } from 'react';
 import axios from 'axios';
 // import { connect } from 'react-redux';
 // import { getUser } from '../redux/reducer';
+import Items from './MenuItems';
 
 class Menu extends Component {
     constructor() {
         super()
 
         this.state = {
-            menu: []
+            menu: [] //menu_name, item_name, item_price, item_description
         }
 
         this.getMenu = this.getMenu.bind(this)
@@ -20,7 +21,9 @@ class Menu extends Component {
     }
 
     getMenu() {
-        axios.get('/api/menu')
+        const {match: {params}} = this.props
+
+        axios.get(`/api/menu/${params.menuId}`)
             .then(res => {
                 this.setState({ menu: res.data })
             })
@@ -31,19 +34,20 @@ class Menu extends Component {
     render() {
         return (
             <div className='menu-component'>
-                <h1>Menu component</h1>
+                <h2>menu name</h2>
+                <h3>menu description</h3>
+                {/* <h1>{this.state.menu.menu_name}</h1>
+                <h4>{this.state.menu.menu_description}</h4> */}
 
-                {/* <h1>Feeling Hungry Hungry?</h1>
-                <h4>Check out our current food truck options</h4>
-
-                <div className="food-trucks-container">
-                    {this.state.menus.map(menu => (
-                        <Bubble
-                            key={menu.menu_id}
-                            menuId={menu.menu_id}
-                            menuName={menu.menu_name} />
+                <div className="menu-items-container">
+                    {this.state.menu.map(item => (
+                        <Items
+                            key={item.item_id}
+                            itemName={item.item_name}
+                            itemPrice={item.item_price}
+                            itemDesc={item.item_description} />
                     ))}
-                </div> */}
+                </div>
 
             </div>
         )
