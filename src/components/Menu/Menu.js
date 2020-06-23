@@ -9,7 +9,8 @@ class Menu extends Component {
         super()
 
         this.state = {
-            menu: [] //menu_name, item_name, item_price, item_description
+            menu: [], //item_name, item_price, item_description
+            title: ''  //menu_name
         }
 
         this.getMenu = this.getMenu.bind(this)
@@ -21,11 +22,11 @@ class Menu extends Component {
     }
 
     getMenu() {
-        const {match: {params}} = this.props
+        const { match: { params } } = this.props
 
         axios.get(`/api/menu/${params.menuId}`)
             .then(res => {
-                this.setState({ menu: res.data })
+                this.setState({ menu: res.data, title: res.data[0].menu_name })
             })
             .catch(err => console.log(err))
     }
@@ -34,15 +35,14 @@ class Menu extends Component {
     render() {
         return (
             <div className='menu-component'>
-                <h2>menu name</h2>
-                <h3>menu description</h3>
-                {/* <h1>{this.state.menu.menu_name}</h1>
-                <h4>{this.state.menu.menu_description}</h4> */}
+                <h1>{this.state.title}</h1>
+                <p>menu description</p>
 
                 <div className="menu-items-container">
                     {this.state.menu.map(item => (
                         <Items
                             key={item.item_id}
+                            itemId={item.item_id}
                             itemName={item.item_name}
                             itemPrice={item.item_price}
                             itemDesc={item.item_description} />

@@ -32,9 +32,11 @@ class Dashboard extends Component {
     render() {
         return (
             <div className='dashboard-component'>
+                <div className='header-text'>
+                    <h1>Feeling Hungry Hungry?</h1>
+                    <h4>Check out our current food truck options</h4>
+                </div>
 
-                <h1>Feeling Hungry Hungry?</h1>
-                <h4>Check out our current food truck options</h4>
 
                 <div className="food-trucks-container">
                     {this.state.menus.map(menu => (

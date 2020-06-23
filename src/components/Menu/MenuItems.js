@@ -1,15 +1,20 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { addToCart } from '../../redux/cartReducer';
 
 function MenuItems(props) {
-    const { itemName, itemPrice, itemDesc } = props
+    const { itemId, itemName, itemPrice, itemDesc, addToCart } = props
     return (
         <div className='menuItems-component'>
+
             <div className='items-bubble'>
-                <div className='item-np'>
+
+                <div className='item-pn'>
                     <span>${itemPrice} -- {itemName}</span>
                 </div>
 
                 <p>{itemDesc}</p>
+                <button onClick={() => addToCart(itemId)}>add to cart</button>
             </div>
 
         </div>
@@ -17,5 +22,5 @@ function MenuItems(props) {
     )
 }
 
-export default MenuItems;
+export default connect(null, { addToCart })(MenuItems);
 
