@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-// import { connect } from 'react-redux';
+import { connect } from 'react-redux';
+import {getUser} from '../../redux/authReducer';
 import axios from 'axios';
 // import { getUser } from '../redux/reducer';
 import Bubble from './DashBubble';
@@ -16,7 +17,7 @@ class Dashboard extends Component {
     }
 
     componentDidMount() {
-        // this.props.getUser()
+        this.props.getUser()
         this.getMenus()
     }
 
@@ -52,8 +53,6 @@ class Dashboard extends Component {
     }
 }
 
-// const mapStateToProps = reduxState => reduxState
-// // const mapDispatchToProps = { getUser }
-// export default connect(mapStateToProps)(Dashboard);
+const mapStateToProps = reduxState => reduxState
+export default connect(mapStateToProps, {getUser})(Dashboard);
 
-export default Dashboard;

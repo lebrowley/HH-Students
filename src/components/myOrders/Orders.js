@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-// import { connect } from 'react-redux';
 // import axios from 'axios';
-// import { getUser } from '../redux/reducer';
+import { connect } from 'react-redux';
+import { getUser } from '../../redux/authReducer';
 
 class Orders extends Component {
     constructor() {
@@ -12,6 +12,10 @@ class Orders extends Component {
             savedOrder: []
         }
 
+    }
+
+    componentDidMount() {
+        this.props.getUser()
     }
 
     // componentDidMount() {
@@ -34,8 +38,5 @@ class Orders extends Component {
     }
 }
 
-// const mapStateToProps = reduxState => reduxState
-// // const mapDispatchToProps = { getUser }
-// export default connect(mapStateToProps)(Dashboard);
-
-export default Orders;
+const mapStateToProps = reduxState => reduxState
+export default connect(mapStateToProps, {getUser})(Orders);

@@ -26,7 +26,7 @@ app.get('/auth/user', authCtrl.getUser)
 //menus
 app.get('/api/menus', menuCtrl.getMenus)
 app.get('/api/menu/:menuId', menuCtrl.getMenu)
-app.get('api/menu', menuCtrl.getMenuItems)
+app.get('/api/menu', menuCtrl.getMenuItems)
 
 //orders
 

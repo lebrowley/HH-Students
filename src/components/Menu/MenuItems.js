@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { addToCart } from '../../redux/cartReducer';
+import { addToCart } from '../../redux/cartActions';
 
 function MenuItems(props) {
     const { itemId, itemName, itemPrice, itemDesc, addToCart } = props

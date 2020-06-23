@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import {closeCart} from '../redux/cartReducer';
+import {closeCart} from '../redux/cartActions';
 // import { Link } from 'react-router-dom';
 // import {withRouter} from 'react-router-dom';
 

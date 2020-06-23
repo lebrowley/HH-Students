@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-// import { connect } from 'react-redux';
-// import { getUser } from '../redux/reducer';
+import { connect } from 'react-redux';
+import { getUser } from '../../redux/authReducer';
 import Items from './MenuItems';
 
 class Menu extends Component {
@@ -17,7 +17,7 @@ class Menu extends Component {
     }
 
     componentDidMount() {
-        // this.props.getUser()
+        this.props.getUser()
         this.getMenu()
     }
 
@@ -54,8 +54,5 @@ class Menu extends Component {
     }
 }
 
-// const mapStateToProps = reduxState => reduxState
-// // const mapDispatchToProps = { getUser }
-// export default connect(mapStateToProps)(Dashboard);
-
-export default Menu;
+const mapStateToProps = reduxState => reduxState
+export default connect(mapStateToProps, {getUser})(Menu);
