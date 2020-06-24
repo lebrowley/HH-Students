@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
+import axios from 'axios';
+import StripeCheckout from 'react-stripe-checkout';
 import { connect } from 'react-redux';
 import { closeCart } from '../../redux/cartActions';
-import { Link } from 'react-router-dom';
-// import {withRouter} from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import CartItems from './CartItems';
 
 class Cart extends Component {
@@ -14,6 +15,7 @@ class Cart extends Component {
             total: 0
         }
         this.closeCart = this.closeCart.bind(this)
+        // this.handleToken = this.handleToken.bind(this)
     }
 
     closeCart() {
@@ -46,6 +48,17 @@ class Cart extends Component {
     //send these in post request to create order_info table in db
     //is this fired when save order button is clicked? or when checkout button is clicked? 
 
+    handleToken(token, address) {
+        // console.log(token, address)
+        axios.post('/checkout', {token})
+        .then(res => {
+            if(res.data.status === 'success') {
+                //toast notification react-toastify package
+                alert('successful payment')
+            } else{alert('something went wrong')}
+        })
+    }
+
     render() {
         return (
             <div className="sidenav-right">
@@ -71,7 +84,14 @@ class Cart extends Component {
                     <input />
                     <button>save order</button>
                     <div className='total-display'>total: {this.state.total}</div>
-                    <Link to='/pay'><button>checkout</button></Link>
+                    
+                    <StripeCheckout
+                        stripeKey='pk_test_51Gvnb2LTyxBsnTeES4eGHhGVkesdPKPfGIZsl9XIjYI2itAHZLv9QTaXLWCvxQJ0H2afElbzS3iKUI9E2JVf1TPB00GBMPu7ZR'
+                        token={this.handleToken}
+                        billingAddress={true}
+                        // amount={this.state.total * 100} //to convert to cents
+                        // name={} name of product
+                        />
                 </div>
 
             </div>

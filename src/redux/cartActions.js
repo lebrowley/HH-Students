@@ -14,8 +14,6 @@ export function addToCart(id) {
 }
 
 export function removeItem(id) {
-    console.log('deleting from cart')
-    // console.log('itemId:', id)
     return {
         type: REMOVE_ITEM,
         payload: id

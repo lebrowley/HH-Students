@@ -1,6 +1,7 @@
 require('dotenv').config()
 const express = require('express'),
       session = require('express-session'),
+      cors = require('cors'),
       massive = require('massive'),
       app = express(),
       {SERVER_PORT, CONNECTION_STRING, SESSION_SECRET} = process.env,
@@ -9,6 +10,7 @@ const express = require('express'),
 
 //Top-level Middleware
 app.use(express.json())
+app.use(cors())
 app.use(session({
     resave: false, 
     saveUninitialized: true,
@@ -29,6 +31,13 @@ app.get('/api/menu/:menuId', menuCtrl.getMenu)
 app.get('/api/menu', menuCtrl.getMenuItems)
 
 //orders
+
+//checkout
+app.post('/checkout', async(req,res) => {
+    console.log(req.body.token.card)
+    //pull the needed info off of the card object to store in db
+    res.status(200).send({status: 'success'})
+})
 
 //DB and Server connection
 massive({
