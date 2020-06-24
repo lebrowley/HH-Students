@@ -10,7 +10,7 @@ import cart from '../cart_icon.png';
 
 function Nav(props) {
     useEffect(() => {
-        props.getMenuItems()    //if getUser is invoked here, it works, but it doesn't not keep user logged in on refresh
+        props.getMenuItems()    //if getUser is invoked here, it works, but it doesn't keep user logged in on refresh
       }, [])
 
     const logout = () => {
@@ -34,7 +34,7 @@ function Nav(props) {
                 <Link to='/myorders'><p>My Orders</p></Link>
 
                 <div className='cart-icon-container'>
-                    <img className='cart-icon' src={cart} onClick={() => openCart()} />
+                    <img className='cart-icon' alt='cart' src={cart} onClick={() => openCart()} />
                 </div>
 
                 <button onClick={() => logout()}>Logout</button>

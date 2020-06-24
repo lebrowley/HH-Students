@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
 import { getUser } from '../../redux/authReducer';
-import Items from './MenuItems';
+import MenuItems from './MenuItems';
 
 class Menu extends Component {
     constructor() {
@@ -40,7 +40,7 @@ class Menu extends Component {
 
                 <div className="menu-items-container">
                     {this.state.menu.map(item => (
-                        <Items
+                        <MenuItems
                             key={item.item_id}
                             itemId={item.item_id}
                             itemName={item.item_name}

@@ -110,3 +110,22 @@
     height: 50px;
     width: 50px;
 }
+
+.quant-remove {
+    display: flex;
+    justify-content: center;
+}
+
+/* Pay.js */
+.pay-component {
+    height: 100vh;
+    background: #D9EDF7;
+    position: absolute;
+    margin-left: 125px;
+    width: 100vw;
+    top: 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+

@@ -7,7 +7,6 @@ export const ADD_TO_CART = 'ADD_TO_CART',
 
     
 export function addToCart(id) {
-    console.log('adding to cart')
     return {
         type: ADD_TO_CART,
         payload: id
@@ -15,6 +14,8 @@ export function addToCart(id) {
 }
 
 export function removeItem(id) {
+    console.log('deleting from cart')
+    // console.log('itemId:', id)
     return {
         type: REMOVE_ITEM,
         payload: id
@@ -36,14 +37,12 @@ export function subtractQuant(id) {
 }
 
 export function closeCart() {
-    console.log('closing cart')
     return {
         type: CLOSE_CART
     }
 }
 
 export function openCart() {
-    console.log('opening cart')
     return {
         type: OPEN_CART
     }
