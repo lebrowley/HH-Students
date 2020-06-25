@@ -34,8 +34,9 @@ app.get('/api/menu', menuCtrl.getMenuItems)
 
 //checkout
 app.post('/checkout', async(req,res) => {
-    console.log(req.body.token.card)
+    // console.log(req.body.token.card)
     //pull the needed info off of the card object to store in db
+    console.log(req.body.token)
     res.status(200).send({status: 'success'})
 })
 

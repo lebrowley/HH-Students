@@ -11,11 +11,9 @@ class Cart extends Component {
         super(props)
 
         this.state = {
-            instructions: '',
-            total: 0
+            instructions: ''
         }
         this.closeCart = this.closeCart.bind(this)
-        // this.handleToken = this.handleToken.bind(this)
     }
 
     closeCart() {
@@ -23,26 +21,6 @@ class Cart extends Component {
     }
 
     //handleChange from input- setState instructions: input
-
-
-    calculateTotal() {
-        //make an array of all of the prices of items in this.props.cart.addedItems 
-            //let prices = []   
-            //iterate over addItems array and pull out the prices; push to prices
-            //let sumPrices = [array of prices].reduce(a, b) => a + b, 0 >> should return an integer
-        //make an array of all of the quantities in this.props.cart.addedItems
-            //let quantities = []
-            //iterate over addedItems array and pull out quantities; push to quantities
-            //let sumQuant = [array of quantities].reduce(a, b) => a + b, 0 >>should return an integer
-        //multiply prices and quantities
-            //let calculation = sumPrices * sumQuant
-        //setState({total: calculation})
-        //fired when the component mounts? or when the component updates?
-        //the component mounts when something is added to the cart, so addedItems won't be empty
-        //but potentially all the items could then be removed from the cart making addedItems empty
-        //conditionally render the total display so that if total on state is falsey, it displays default
-        //and if total is truthy, it displays the correct total as calculated by this function
-    }
 
     //createOrder- user_id, item_id, quantity, special instructions
     //send these in post request to create order_info table in db
@@ -54,6 +32,7 @@ class Cart extends Component {
         .then(res => {
             if(res.data.status === 'success') {
                 //toast notification react-toastify package
+                //clear the cart information from display, reduxState and DB
                 alert('successful payment')
             } else{alert('something went wrong')}
         })
@@ -83,13 +62,13 @@ class Cart extends Component {
                     <p>Special Instructions</p>
                     <input />
                     <button>save order</button>
-                    <div className='total-display'>total: {this.state.total}</div>
+                    <div className='total-display'>total: ${this.props.cart.total}</div>
                     
                     <StripeCheckout
                         stripeKey='pk_test_51Gvnb2LTyxBsnTeES4eGHhGVkesdPKPfGIZsl9XIjYI2itAHZLv9QTaXLWCvxQJ0H2afElbzS3iKUI9E2JVf1TPB00GBMPu7ZR'
                         token={this.handleToken}
                         billingAddress={true}
-                        // amount={this.state.total * 100} //to convert to cents
+                        amount={this.props.cart.total * 100} //to convert to cents
                         // name={} name of product
                         />
                 </div>
