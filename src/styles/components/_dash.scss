@@ -1,11 +1,6 @@
 @import '../variables';
 
-/* Dash.js */
 .dashboard-component {
-    // height: 100vh;
-    // position: absolute;
-    // margin-left: 125px;
-    // width: 50%;
     @include component();
 }
 
