@@ -28,7 +28,7 @@ class Auth extends Component {
 
         axios.post('/auth/register', { email, password })
             .then(res => {
-                this.props.loginUser(res.data)   
+                this.props.loginUser(res.data)
                 this.props.history.push('/dashboard')
             })
             .catch(err => alert('Could not register'))
@@ -50,7 +50,11 @@ class Auth extends Component {
         return (
             <div className='auth-page'>
                 <h1>Hungry Hungry Students</h1>
-                <span>info bubbles</span>
+                <div className='info-bubbles-container'>
+                    <div className='info-bubble'>Order and pay online</div>
+                    <div className='info-bubble'>Find food trucks on campus</div>
+                    <div className='info-bubble'>Quickly reorder favorites</div>
+                </div>
 
                 <div className='auth-box'>
                     <h3>Login</h3>
@@ -72,11 +76,11 @@ class Auth extends Component {
 
                             <button id='login' type='submit' onClick={this.register}>Sign up</button>
                         </div>
-
-                        <h2>Tell me more</h2>
-
                     </form>
+
                 </div>
+
+                <h2>Tell me more</h2>
             </div>
 
         )

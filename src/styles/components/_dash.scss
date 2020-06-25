@@ -1,0 +1,34 @@
+@import '../variables';
+
+/* Dash.js */
+.dashboard-component {
+    // height: 100vh;
+    // position: absolute;
+    // margin-left: 125px;
+    // width: 50%;
+    @include component();
+}
+
+.food-trucks-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    align-content: space-around;
+    width: 400px;
+    margin: 50px 50px;
+    margin-left: 170px;
+}
+
+.food-truck-bubble {
+    box-sizing: border-box;
+    border: 3px solid $darkerBlue;
+    background: $white;
+    border-radius: $circle;
+    height: 150px;
+    width: 150px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+    padding-left: 5px;
+}

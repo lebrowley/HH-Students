@@ -5,7 +5,7 @@ import { addToCart } from '../../redux/cartActions';
 function MenuItems(props) {
     const { itemId, itemName, itemPrice, itemDesc, addToCart } = props
     return (
-        <div className='menuItems-component'>
+        <div className='menu-items'>
 
             <div className='items-bubble'>
 
@@ -14,8 +14,8 @@ function MenuItems(props) {
                 </div>
 
                 <p>{itemDesc}</p>
-                <button onClick={() => addToCart(itemId)}>add to cart</button>
             </div>
+            <button onClick={() => addToCart(itemId)}>add to cart</button>
 
         </div>
 

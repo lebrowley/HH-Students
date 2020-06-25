@@ -29,7 +29,7 @@ class Orders extends Component {
 
     render() {
         return (
-            <div className='dashboard-component'>
+            <div className='orders-component'>
 
                 <h1>My Orders Component</h1>
 

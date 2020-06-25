@@ -5,7 +5,7 @@ function Bubble(props) {
     const { menuId, menuName } = props
     return (
         <div className='food-truck-bubble'>
-            <Link to={`/menu/${menuId}`}>{menuName}</Link>
+            <Link id='link' to={`/menu/${menuId}`}>{menuName}</Link>
         </div>
     )
 }

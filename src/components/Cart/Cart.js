@@ -80,7 +80,7 @@ class Cart extends Component {
                         ))}
                     </div>
 
-                    <p>special instructions</p>
+                    <p>Special Instructions</p>
                     <input />
                     <button>save order</button>
                     <div className='total-display'>total: {this.state.total}</div>

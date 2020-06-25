@@ -1,0 +1,298 @@
+/* Auth.js */
+@import url(https://fonts.googleapis.com/css2?family=Krona+One&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Krona+One&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Krona+One&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Krona+One&display=swap);
+.auth-page {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: distribute;
+      align-content: space-around;
+  background-color: #FFFFFF;
+  height: 100vh;
+}
+
+.auth-page h1 {
+  color: #FF5900;
+}
+
+.info-bubbles-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.info-bubble {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #FFF7D6;
+  height: 228px;
+  width: 228px;
+  border-radius: 50%;
+  border: 3px solid #8A3E00;
+  color: #8A3E00;
+  margin: 10px 30px;
+}
+
+.auth-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 210px;
+  width: 502px;
+  background-color: #D9EDF7;
+  color: #005261;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border: 3px solid #005261;
+  border-radius: 130px;
+}
+
+.auth-box input {
+  margin-bottom: 25px;
+  border: 3px solid #005261;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-radius: 19.5px;
+}
+
+.auth-box input ::-webkit-input-placeholder {
+  color: #005261;
+  text-align: center;
+}
+
+.auth-box input :-ms-input-placeholder {
+  color: #005261;
+  text-align: center;
+}
+
+.auth-box input ::-ms-input-placeholder {
+  color: #005261;
+  text-align: center;
+}
+
+.auth-box input ::placeholder {
+  color: #005261;
+  text-align: center;
+}
+
+/* Nav.js */
+.sidenav {
+  height: 100vh;
+  width: 125px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background: #FFF7D6;
+  overflow-x: hidden;
+}
+
+.sidenav h3 {
+  color: #FF5900;
+}
+
+.nav-links {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 50px;
+}
+
+.nav-links #link {
+  margin-top: 15px;
+}
+
+.nav-links .cart-icon {
+  height: 50px;
+  width: 50px;
+  margin-top: 20px;
+}
+
+#logout-btn {
+  position: absolute;
+  bottom: 50px;
+}
+
+/* Dash.js */
+.dashboard-component {
+  height: 100vh;
+  position: absolute;
+  margin-left: 125px;
+  width: 50%;
+}
+
+.food-trucks-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: distribute;
+      align-content: space-around;
+  width: 300px;
+  margin: 50px 50px;
+  margin-left: 170px;
+}
+
+.food-truck-bubble {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border: 3px solid #005261;
+  background: #FFFFFF;
+  border-radius: 50%;
+  height: 100px;
+  width: 100px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 20px 20px;
+}
+
+/* Menu.js */
+.menu-component {
+  height: 100vh;
+  background: #D9EDF7;
+  position: absolute;
+  margin-left: 125px;
+  width: 100vw;
+  top: 0px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.items-bubble {
+  height: 100px;
+  width: 372px;
+  left: 543px;
+  top: 175px;
+  background: #FFFFFF;
+  border: 3px solid #005261;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-radius: 52px;
+  margin: 15px 15px;
+}
+
+/* Cart.js */
+.sidenav-right {
+  height: 100vh;
+  width: 450px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  background: #FFF7D6;
+  overflow-x: hidden;
+}
+
+.sidenav-right-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.quant-remove {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+/* App.js */
+.App {
+  height: 100vh;
+  width: 100%;
+  margin: 0;
+  text-align: center;
+  vertical-align: baseline;
+  border: 0;
+  background-color: #D9EDF7;
+}
+
+.App button {
+  background-color: #FFFFFF;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border: 3px solid #FF5900;
+  border-radius: 19.5px;
+  color: #FF5900;
+  padding: 10px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-family: 'Krona One', sans-serif;
+  font-size: 16px;
+  margin-right: 10px;
+}
+
+#link {
+  text-decoration: none;
+  color: #005261;
+}
+/*# sourceMappingURL=App.css.map */

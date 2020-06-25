@@ -1,0 +1,48 @@
+/* Auth.js */
+@import '../variables';
+
+.auth-page {
+    @include flexCenter();
+    align-content: space-around;
+    background-color: $white;
+    height: 100vh;
+    h1 {
+        color: $orange;
+    }
+}
+
+.info-bubbles-container {
+    display: flex;
+    justify-content: space-around;  //not working
+    
+}
+
+.info-bubble {
+    @include flexCenter();
+    background-color: $yellow;
+    height: 228px;
+    width: 228px;
+    border-radius: $circle;
+    border: 3px solid $brown;
+    color: $brown;
+    margin: 10px 30px; 
+}
+
+.auth-box {
+    @include flexCenter();
+    height: 210px;
+    width: 502px;
+    background-color: $blue;
+    color: $darkerBlue;
+    box-sizing: border-box;
+    border: 3px solid #005261;
+    border-radius: 130px;
+    
+    input {
+        margin-bottom: 25px;
+        border: 3px solid $darkerBlue;
+        box-sizing: border-box;
+        border-radius: $oval;
+        height: 40px;
+    }
+}

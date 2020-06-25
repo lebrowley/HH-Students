@@ -1,0 +1,46 @@
+@import url(https://fonts.googleapis.com/css2?family=Krona+One&display=swap);
+
+//mixins
+@mixin btnStyle ($bgColor) {
+    background-color: $bgColor;
+    box-sizing: border-box;
+    border: 3px solid $orange;
+    border-radius: $oval;
+    color: $orange;
+    padding: 10px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-family: 'Krona One', sans-serif;
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+@mixin flexCenter {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin component {
+    height: 100vh;
+    position: absolute;
+    margin-left: 125px;
+    width: 50%;
+}
+
+// color variables
+$blue: #D9EDF7;
+$darkerBlue: #005261;
+$brown: #8A3E00;
+$orange: #FF5900;
+$white: #FFFFFF;
+$yellow: #FFF7D6;
+
+//shape varialbes
+$circle: 50%;
+$oval: 19.5px;
+
+
+

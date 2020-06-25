@@ -30,14 +30,14 @@ function Nav(props) {
             <h3>Hungry Hungry Students</h3>
 
             <div className='nav-links'>
-                <Link to='/dashboard'><p>Food Trucks</p></Link>
-                <Link to='/myorders'><p>My Orders</p></Link>
+                <Link id='link' to='/dashboard'><p>Food Trucks</p></Link>
+                <Link id='link' to='/myorders'><p>My Orders</p></Link>
 
                 <div className='cart-icon-container'>
                     <img className='cart-icon' alt='cart' src={cart} onClick={() => openCart()} />
                 </div>
 
-                <button onClick={() => logout()}>Logout</button>
+                <button id='logout-btn' onClick={() => logout()}>Logout</button>
 
             </div>
 

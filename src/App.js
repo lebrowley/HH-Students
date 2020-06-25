@@ -5,7 +5,7 @@ import { getUser } from './redux/authReducer';
 import {getMenuItems} from './redux/cartReducer';
 import Nav from './components/Nav';
 import Cart from './components/Cart/Cart';
-import './App.css';
+import './styles/App.scss';
 
 function App(props) {
   //hook for componentDidMount(getUser)
