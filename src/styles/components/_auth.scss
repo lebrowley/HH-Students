@@ -3,7 +3,7 @@
 .auth-page {
     @include flexCenter();
     align-content: space-around;
-    background-color: $white;
+    background-color: $lightGray;
     height: 100vh;
     h1 {
         color: $orange;
@@ -12,15 +12,13 @@
 
 .info-bubbles-container {
     display: flex;
-    justify-content: space-around;  //not working
-    
 }
 
 .info-bubble {
     @include flexCenter();
     background-color: $yellow;
-    height: 228px;
-    width: 228px;
+    height: 200px;
+    width: 200px;
     border-radius: $circle;
     border: 3px solid $brown;
     color: $brown;
@@ -29,12 +27,13 @@
 
 .auth-box {
     @include flexCenter();
-    height: 210px;
-    width: 502px;
+    height: 280px;
+    width: 550px;
     background-color: $blue;
     color: $darkerBlue;
+    font-size: 25px;
     box-sizing: border-box;
-    border: 3px solid #005261;
+    border: 3px solid $darkerBlue;
     border-radius: 130px;
     
     input {
