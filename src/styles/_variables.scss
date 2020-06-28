@@ -24,10 +24,12 @@
 }
 
 @mixin component {
-    height: 100vh;
+    height: 100%;
     position: absolute;
     margin-left: 125px;
     width: 50%;
+    background-color: $blue;
+    margin-left: 170px;
 }
 
 // color variables
