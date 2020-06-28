@@ -10,7 +10,8 @@ class Menu extends Component {
 
         this.state = {
             menu: [], //item_name, item_price, item_description
-            title: ''  //menu_name
+            title: '',  //menu_name
+            description: ''
         }
 
         this.getMenu = this.getMenu.bind(this)
@@ -26,7 +27,10 @@ class Menu extends Component {
 
         axios.get(`/api/menu/${params.menuId}`)
             .then(res => {
-                this.setState({ menu: res.data, title: res.data[0].menu_name })
+                this.setState({ 
+                    menu: res.data, 
+                    title: res.data[0].menu_name,
+                    description: res.data[0].menu_description })
             })
             .catch(err => console.log(err))
     }
@@ -36,7 +40,7 @@ class Menu extends Component {
         return (
             <div className='menu-component'>
                 <h1>{this.state.title}</h1>
-                <p>menu description</p>
+                <p>{this.state.description}</p>
 
                 <div className="menu-items-container">
                     {this.state.menu.map(item => (

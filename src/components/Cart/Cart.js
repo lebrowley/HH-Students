@@ -3,7 +3,8 @@ import axios from 'axios';
 import StripeCheckout from 'react-stripe-checkout';
 import { connect } from 'react-redux';
 import { closeCart } from '../../redux/cartActions';
-// import { Link } from 'react-router-dom';
+// import { saveOrder } from '../../redux/orderActions';
+// import cartReducer from '../../redux/cartReducer';
 import CartItems from './CartItems';
 
 class Cart extends Component {
@@ -13,29 +14,44 @@ class Cart extends Component {
         this.state = {
             instructions: ''
         }
+
         this.closeCart = this.closeCart.bind(this)
+        // this.handleComplete = this.handleComplete.bind(this)
     }
 
     closeCart() {
         this.props.closeCart()
     }
 
-    //handleChange from input- setState instructions: input
+    // handleSave() {
+    //     saveOrder() from orderActions/cartReducer
+    //     this action will toggle saved_order to true
+    // }
 
-    //createOrder- user_id, item_id, quantity, special instructions
-    //send these in post request to create order_info table in db
-    //is this fired when save order button is clicked? or when checkout button is clicked? 
+    // handleComplete() {
+    //     some sort of loading animation while all the .thens chained below complete? 
 
-    handleToken(token, address) {
-        // console.log(token, address)
-        axios.post('/checkout', {token})
-        .then(res => {
-            if(res.data.status === 'success') {
-                //toast notification react-toastify package
-                //clear the cart information from display, reduxState and DB
-                alert('successful payment')
-            } else{alert('something went wrong')}
-        })
+    //     completeOrder() from orderActions/cartReducer; toggle completed_order to true and in_cart to false
+
+    //     axios.post('/api/orders, {user_id- from authReducer; item_id, quantity, total, in_cart, saved_order, completed_order- from cartReducer, addedItems})
+
+    //     .then
+    //     clear the cart information from display, reduxState and DB
+    //     clearAdded() from orderActions/cartReducer
+    // }
+
+    handleToken(token, address, amount) {
+        console.log(token, address, amount)
+        axios.post('/checkout', { token, address, amount })
+            .then(res => {
+                if (res.data.status === 'success') {
+                    //this.handleComplete()
+
+                    //toast notification react-toastify package
+                    alert('successful payment')
+
+                } else { alert('Something went wrong in processing your payment. Please try again later.') }
+            })
     }
 
     render() {
@@ -47,11 +63,11 @@ class Cart extends Component {
                 </div>
 
                 <div className='cart-contents'>
-
+            {/*conditional render some sort of loading component with CartItems after payment while completeOrder is running?? */}
                     <div className="cart-items-container">
                         {this.props.cart.addedItems.map(item => (
                             <CartItems
-                                key={item.item_id}     
+                                key={item.item_id}
                                 itemId={item.item_id}
                                 itemName={item.item_name}
                                 itemPrice={item.item_price}
@@ -59,18 +75,17 @@ class Cart extends Component {
                         ))}
                     </div>
 
-                    <p>Special Instructions</p>
-                    <input />
-                    <button>save order</button>
+                    {/* <p>Special Instructions</p>
+                    <input /> */}
+                    <button id='save-order'>save order</button>
                     <div className='total-display'>total: ${this.props.cart.total}</div>
-                    
+
                     <StripeCheckout
                         stripeKey='pk_test_51Gvnb2LTyxBsnTeES4eGHhGVkesdPKPfGIZsl9XIjYI2itAHZLv9QTaXLWCvxQJ0H2afElbzS3iKUI9E2JVf1TPB00GBMPu7ZR'
                         token={this.handleToken}
                         billingAddress={true}
                         amount={this.props.cart.total * 100} //to convert to cents
-                        // name={} name of product
-                        />
+                    />
                 </div>
 
             </div>

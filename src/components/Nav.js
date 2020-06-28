@@ -1,8 +1,9 @@
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
 import { logoutUser, getUser } from '../redux/authReducer';
-import {getMenuItems} from '../redux/cartReducer';
+import { getMenuItems } from '../redux/cartReducer'; //getOrders
+import { clearCartState } from '../redux/cartReducer';
 import { openCart } from '../redux/cartActions';
 import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router-dom';
@@ -11,12 +12,14 @@ import cart from '../cart_icon.png';
 function Nav(props) {
     useEffect(() => {
         props.getMenuItems()    //if getUser is invoked here, it works, but it doesn't keep user logged in on refresh
-      }, [])
+        //getOrders() 
+    }, [])
 
     const logout = () => {
         axios.delete('/auth/logout')
             .then(() => {
                 props.logoutUser()
+                props.clearCartState()
                 props.history.push('/')
             })
             .catch(err => console.log(err))
@@ -46,5 +49,5 @@ function Nav(props) {
 }
 
 const mapStateToProps = reduxState => reduxState
-const mapDispatchToProps = { logoutUser, openCart, getMenuItems, getUser }
+const mapDispatchToProps = { logoutUser, openCart, getMenuItems, getUser, clearCartState } //getOrders
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Nav));
