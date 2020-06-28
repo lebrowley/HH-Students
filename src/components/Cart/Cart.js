@@ -33,10 +33,17 @@ class Cart extends Component {
 
     //     completeOrder() from orderActions/cartReducer; toggle completed_order to true and in_cart to false
 
-    //     axios.post('/api/orders, {user_id- from authReducer; item_id, quantity, total, in_cart, saved_order, completed_order- from cartReducer, addedItems})
+    //createOrder
+    //     axios.post('/api/orders, {user_id- from authReducer; item_id, quantity, total, in_cart, saved_order, completed_order- from cartReducer, addedItems}) is there someway to send the entire addedItems array as it at this point in time? (that is at the point where the user has 1. added items to the cart, 2. chosen whether or not to save the order, and 3. paid for the order; since all of these actions have occurred, everything in the addedItems array should be up to date and what we want stored in the db. How can I transplant the entire array into my DB for storage and retrieval later for display of orders and unique cart instance?
+    
+    //could i "zip" all of the item_ids into one value to store in the order_info table (under item_id or equiv column)? 
+    //so when an order is sent to the db the ids or "zipped" up into one integer or a string of integers separated by ,
+    //and then when an order is access later, the ids are "unzipped" into their individual integers so I can get the individual items and all of their info again -- this would all have to happen on the backend so the front end gets and gives the info it can
+
+    //or can i find a way to repeat the order_id across all of the items in the order when they're added to the table; do multiple inserts for each item while maintaining a consistent order_id for all of them (similar to how the menu_items table is set up)
 
     //     .then
-    //     clear the cart information from display, reduxState and DB
+    //     clear the cart information from display, reduxState (reset addedItems to be ready again for a new round of items added to the cart)
     //     clearAdded() from orderActions/cartReducer
     // }
 
@@ -75,8 +82,6 @@ class Cart extends Component {
                         ))}
                     </div>
 
-                    {/* <p>Special Instructions</p>
-                    <input /> */}
                     <button id='save-order'>save order</button>
                     <div className='total-display'>total: ${this.props.cart.total}</div>
 

@@ -3,11 +3,10 @@ export const SAVE_ORDER = 'SAVE_ORDER',
             CLEAR_ADDED_ITEMS = 'CLEAR_ADDED_ITEMS'
 
     
-export function saveOrder(id) {
+export function saveOrder() {
     //this action will handle toggling saved_order to true
     return {
-    type: SAVE_ORDER,
-    payload: id
+    type: SAVE_ORDER
     }
 }
 

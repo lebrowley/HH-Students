@@ -36,6 +36,13 @@ module.exports = {
     createOrder: (req, res) => {
         const dbInstance = req.app.get('db')
         const {user_id, item_id, quantity, total, saved_order, in_cart, completed_order} = req.body
+        //const {addedItems, saved_order, completed_order, total, user_id} = req.body
+        //addedItems would be an array with everything about the specific items in it
+        //extract all the item_ids, quantities, totals, in_cart >> make a new table (order_items_join) to hold these; reference the order_id (serial on order_info)
+        
+        //to make multiple insertions into the order_items_table, create a function that would recursively call on the sql query file until it reaches the end of the array with all of the items; during this process, the order_id will have to be kept constant so that each item is identified with the right order
+
+        //then create table order_info with the order_id, user_id saved_order, in_cart, completed_order info
 
         dbInstance.create_order([user_id, item_id, quantity, total, saved_order, in_cart, completed_order])
         .then(() => res.sendStatus(200))

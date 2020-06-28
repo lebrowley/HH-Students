@@ -34,9 +34,14 @@ app.get('/api/menu', menuCtrl.getMenuItems)     //Nav.js >> cartReducer
 //orders
 app.get('/api/orders/:userId', orderCtrl.getOrders)  //fired with getMenuItems when Nav component mounts (thus a session should exist)
 app.post('/api/orders', orderCtrl.createOrder)  //fired on payment completion
-app.put('api/orders/:orderId', orderCtrl.updateCart) //change in_cart status between true or false; fired on logout, on payment completion
-app.put('api/orders/:orderId', orderCtrl.updateComplete) //change completed_order status between true or false; fired on payment completion
-app.put('api/orders/:orderId', orderCtrl.updateSaved) //change saved_order status between true or false; fired on save order button
+
+//all of these endpoints now handled in cartActions/cartReducer
+// app.put('api/orders/:orderId', orderCtrl.updateCart) 
+//change in_cart status between true or false; fired on logout, on payment completion
+// app.put('api/orders/:orderId', orderCtrl.updateComplete) 
+//change completed_order status between true or false; fired on payment completion
+// app.put('api/orders/:orderId', orderCtrl.updateSaved) 
+//change saved_order status between true or false; fired on save order button
 
 //other possible edits or endpoints? 
 //app.put('api/orders/:orderId', orderCtrl.updateQuantity) //change item quantity (and thus the total)

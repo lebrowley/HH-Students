@@ -6,11 +6,9 @@ function CartItems(props) {
     const { itemId, itemName, itemPrice, itemDesc } = props
 
     const quantity = props.cart.addedItems.map(item => {
-        let quantity = 0
         if (item.item_id === itemId) {
-            quantity += item.quantity
+            return item.quantity
         }
-        return quantity
     })
     
     return (
