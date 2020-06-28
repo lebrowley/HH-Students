@@ -16,8 +16,6 @@ module.exports = {
 
         const newUser = await dbInstance.register_user([email, hash])
 
-        //deleting password hash? 
-
         req.session.user = {
             email: newUser[0].email,
             userId: newUser[0].user_id
@@ -59,5 +57,21 @@ module.exports = {
         } else {
             res.sendStatus(404)
         }
-    }
+    },
+     updateUser: async (req, res) => {
+         const dbInstance = req.app.get('db')
+         const {userId} = req.params
+         const {email, password} = req.body
+ 
+         const salt = bcrypt.genSaltSync(10)
+         const hash = bcrypt.hashSync(password, salt)
+ 
+         const updateUser = await dbInstance.update_user([userId, email, hash])
+ 
+         req.session.user = {
+             email: updateUser[0].email,
+             userId: updateUser[0].user_id
+         }
+         res.status(200).send(req.session.user)
+     }
 }

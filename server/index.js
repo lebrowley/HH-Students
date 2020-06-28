@@ -21,10 +21,12 @@ app.use(session({
 
 //Endpoints
 //authentication
-app.post('/auth/register', authCtrl.register)   //Auth.js
-app.post('/auth/login', authCtrl.login)         //Auth.js
-app.delete('/auth/logout', authCtrl.logout)     //Nav.js
-app.get('/auth/user', authCtrl.getUser)         //components after login
+app.post('/auth/register', authCtrl.register)           //Auth.js
+app.post('/auth/login', authCtrl.login)                 //Auth.js
+app.delete('/auth/logout', authCtrl.logout)             //Nav.js
+app.get('/auth/user', authCtrl.getUser)                 //components after login
+app.put('/auth/user/:userId', authCtrl.updateUser)      //Profile.js
+
 
 //menus
 app.get('/api/menus', menuCtrl.getMenus)        //Dash.js

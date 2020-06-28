@@ -5,6 +5,7 @@ export const SAVE_ORDER = 'SAVE_ORDER',
     
 export function saveOrder() {
     //this action will handle toggling saved_order to true
+    //it also needs to make a post to the db to save items that may still be in the cart AND saved as an order
     return {
     type: SAVE_ORDER
     }

@@ -33,20 +33,35 @@ module.exports = {
         //try/catch block for error handling? 
     }, 
 
-    createOrder: (req, res) => {
+    createOrder: async (req, res) => {
         const dbInstance = req.app.get('db')
-        const {user_id, item_id, quantity, total, saved_order, in_cart, completed_order} = req.body
-        //const {addedItems, saved_order, completed_order, total, user_id} = req.body
-        //addedItems would be an array with everything about the specific items in it
-        //extract all the item_ids, quantities, totals, in_cart >> make a new table (order_items_join) to hold these; reference the order_id (serial on order_info)
+        const {user_id, addedItems, total, saved_order, completed_order} = req.body
+        console.log(req.body)
+
+        const order = await dbInstance.create_order([user_id, saved_order, completed_order, total])
+        const order_id = order[0].order_id
+        console.log(order_id)
+        //addedItems is an array with everything about the specific items in it
+        //extract all the item_ids, quantities, in_cart >> make a new table (order_items_join) to hold these; reference the order_id (serial on order_info)
         
         //to make multiple insertions into the order_items_table, create a function that would recursively call on the sql query file until it reaches the end of the array with all of the items; during this process, the order_id will have to be kept constant so that each item is identified with the right order
+        const addItems = (addedItems, extracted=[], index=0, order_id) => {
+            //filter through the arr (addedItems) and only return the item_id, quantity and in_cart for each item
+            //push these modified objects to the extracted array until its length and addedItems length are equal
+            //if they are equal move on to the next part
 
-        //then create table order_info with the order_id, user_id saved_order, in_cart, completed_order info
+            //loop through the extracted array and set the item_id, quant and in_cart equal to variables
+            //send these variables along with the order_id to dbInstance.create_order_items([order_id, item_id, quantity, in_cart])
+            //when that is done, check to see if we're at the end of extracted array
+            //if not, do the loop again and execute create_order_items again addItems()- this is where it is recursive? 
+            //if it is (meets the base case) then end the function and continue on with createOrder by sending the OK status
+        }
 
-        dbInstance.create_order([user_id, item_id, quantity, total, saved_order, in_cart, completed_order])
-        .then(() => res.sendStatus(200))
-        .catch(err => res.status(500).send(err))
+
+        //try/catch block for error handling
+        // .then(() => res.sendStatus(200))
+        // .catch(err => res.status(500).send(err))
+        res.sendStatus(200)
     }, 
 
     updateCart: (req, res) => {},

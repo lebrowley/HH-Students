@@ -8,6 +8,7 @@ import { openCart } from '../redux/cartActions';
 import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router-dom';
 import cart from '../cart_icon.png';
+import hippo from '../hippo.png';
 
 function Nav(props) {
     useEffect(() => {
@@ -39,6 +40,7 @@ function Nav(props) {
                 <div className='cart-icon-container'>
                     <img className='cart-icon' alt='cart' src={cart} onClick={() => openCart()} />
                 </div>
+                <Link to={'/profile'}><img className='profile-icon' alt='profile' src={hippo}/></Link>
 
                 <button id='logout-btn' onClick={() => logout()}>Logout</button>
 

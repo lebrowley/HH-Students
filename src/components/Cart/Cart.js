@@ -3,8 +3,9 @@ import axios from 'axios';
 import StripeCheckout from 'react-stripe-checkout';
 import { connect } from 'react-redux';
 import { closeCart } from '../../redux/cartActions';
-// import { saveOrder } from '../../redux/orderActions';
-// import cartReducer from '../../redux/cartReducer';
+import { completeOrder, saveOrder, clearAdded } from '../../redux/orderActions';
+import check from '../../check_mark.png';
+
 import CartItems from './CartItems';
 
 class Cart extends Component {
@@ -12,47 +13,57 @@ class Cart extends Component {
         super(props)
 
         this.state = {
-            instructions: ''
+            checkoutOpen: false,
+            markSave: false,
+            markComplete: false
         }
 
         this.closeCart = this.closeCart.bind(this)
-        // this.handleComplete = this.handleComplete.bind(this)
+        this.handleComplete = this.handleComplete.bind(this)
+        this.createOrder = this.createOrder.bind(this)
+        this.handleSave = this.handleSave.bind(this)
     }
 
     closeCart() {
         this.props.closeCart()
     }
 
-    // handleSave() {
-    //     saveOrder() from orderActions/cartReducer
-    //     this action will toggle saved_order to true
-    // }
+    async handleSave() {
+        const save = await this.props.saveOrder()
+        this.setState({ markSave: true })
+    }
 
-    // handleComplete() {
-    //     some sort of loading animation while all the .thens chained below complete? 
+    async handleComplete() {
+        const complete = await this.props.completeOrder()
+        this.createOrder()
+        this.setState({markComplete: true})
+    }
 
-    //     completeOrder() from orderActions/cartReducer; toggle completed_order to true and in_cart to false
+    createOrder() {
+        this.setState({ checkoutOpen: true })
+        const user_id = this.props.auth.user.userId
+        const { addedItems, total, saved_order, completed_order } = this.props.cart
 
-    //createOrder
-    //     axios.post('/api/orders, {user_id- from authReducer; item_id, quantity, total, in_cart, saved_order, completed_order- from cartReducer, addedItems}) is there someway to send the entire addedItems array as it at this point in time? (that is at the point where the user has 1. added items to the cart, 2. chosen whether or not to save the order, and 3. paid for the order; since all of these actions have occurred, everything in the addedItems array should be up to date and what we want stored in the db. How can I transplant the entire array into my DB for storage and retrieval later for display of orders and unique cart instance?
-    
-    //could i "zip" all of the item_ids into one value to store in the order_info table (under item_id or equiv column)? 
-    //so when an order is sent to the db the ids or "zipped" up into one integer or a string of integers separated by ,
-    //and then when an order is access later, the ids are "unzipped" into their individual integers so I can get the individual items and all of their info again -- this would all have to happen on the backend so the front end gets and gives the info it can
+        axios.post('/api/orders', { user_id, addedItems, total, saved_order, completed_order })
+            .then(res => console.log('order created'))
+            .catch(err => alert(err))
+    }
 
-    //or can i find a way to repeat the order_id across all of the items in the order when they're added to the table; do multiple inserts for each item while maintaining a consistent order_id for all of them (similar to how the menu_items table is set up)
 
-    //     .then
-    //     clear the cart information from display, reduxState (reset addedItems to be ready again for a new round of items added to the cart)
-    //     clearAdded() from orderActions/cartReducer
-    // }
+    handleClick = () => {
+        // console.log('button clicked!')
+        // clear the cart information from display, reduxState
+        this.props.clearAdded()
+        this.setState({ checkoutOpen: false, markSave: false, markComplete: false })
+    }
 
     handleToken(token, address, amount) {
         console.log(token, address, amount)
         axios.post('/checkout', { token, address, amount })
             .then(res => {
                 if (res.data.status === 'success') {
-                    //this.handleComplete()
+                    // this.handleComplete()
+                    // this.createOrder()
 
                     //toast notification react-toastify package
                     alert('successful payment')
@@ -70,7 +81,7 @@ class Cart extends Component {
                 </div>
 
                 <div className='cart-contents'>
-            {/*conditional render some sort of loading component with CartItems after payment while completeOrder is running?? */}
+
                     <div className="cart-items-container">
                         {this.props.cart.addedItems.map(item => (
                             <CartItems
@@ -82,15 +93,30 @@ class Cart extends Component {
                         ))}
                     </div>
 
-                    <button id='save-order'>save order</button>
+                    <div className='mark-container'>
+                        <button id='save-order' onClick={() => this.handleSave()}>save order</button>
+                        {this.state.markSave ? <img id='check-mark' alt='check-mark' src={check} /> : null}
+                    </div>
+
                     <div className='total-display'>total: ${this.props.cart.total}</div>
 
-                    <StripeCheckout
-                        stripeKey='pk_test_51Gvnb2LTyxBsnTeES4eGHhGVkesdPKPfGIZsl9XIjYI2itAHZLv9QTaXLWCvxQJ0H2afElbzS3iKUI9E2JVf1TPB00GBMPu7ZR'
-                        token={this.handleToken}
-                        billingAddress={true}
-                        amount={this.props.cart.total * 100} //to convert to cents
-                    />
+                    <div className='mark-container'>
+                        <button id='create-order' onClick={() => this.handleComplete()}>send order</button>
+                        {this.state.markComplete ? <img id='check-mark' alt='check-mark' src={check} />: null}
+                    </div>
+
+                    {this.state.checkoutOpen ?
+                        <button id='stripe-btn' onClick={this.handleClick}>
+                            <StripeCheckout
+                                stripeKey='pk_test_51Gvnb2LTyxBsnTeES4eGHhGVkesdPKPfGIZsl9XIjYI2itAHZLv9QTaXLWCvxQJ0H2afElbzS3iKUI9E2JVf1TPB00GBMPu7ZR'
+                                token={this.handleToken}
+                                billingAddress={true}
+                                amount={this.props.cart.total * 100} //to convert to cents
+                            />
+                        </button>
+                        : null}
+
+
                 </div>
 
             </div>
@@ -99,4 +125,5 @@ class Cart extends Component {
 }
 
 const mapStateToProps = reduxState => reduxState
-export default connect(mapStateToProps, { closeCart })(Cart);
+const mapDispatchToProps = { closeCart, completeOrder, saveOrder, clearAdded }
+export default connect(mapStateToProps, mapDispatchToProps)(Cart);
