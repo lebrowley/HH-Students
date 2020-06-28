@@ -26,10 +26,23 @@
 @mixin component {
     height: 100%;
     position: absolute;
-    margin-left: 125px;
     width: 50%;
     background-color: $blue;
     margin-left: 170px;
+}
+
+@mixin bubble {
+    box-sizing: border-box;
+    border: 3px solid $darkerBlue;
+    background: $white;
+    border-radius: $circle;
+    height: 150px;
+    width: 150px;
+    display: flex;
+    align-items: center;
+    // margin-bottom: 10px;
+    // margin-right: 3px;
+    padding-left: 5px;
 }
 
 // color variables

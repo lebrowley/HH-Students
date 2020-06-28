@@ -35,6 +35,9 @@
     #save-order {
         margin-top: 20px;
     }
+    #create-order {
+        margin-bottom: 20px;
+    }
 }
 
 .quant-remove {
@@ -43,4 +46,22 @@
     p {
         margin-right: 10px;
     }
+}
+
+#stripe-btn {
+    background-color: $yellow;
+    border: none;
+
+}
+
+.mark-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+#check-mark {
+    background-color: $yellow;
+    height: 45px;
+    width: 45px;
+    margin-top: 15px;
 }

@@ -1,4 +1,7 @@
-/* Auth.js */
+@import url(https://fonts.googleapis.com/css2?family=Krona+One&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Krona+One&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Krona+One&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Krona+One&display=swap);
 @import url(https://fonts.googleapis.com/css2?family=Krona+One&display=swap);
 @import url(https://fonts.googleapis.com/css2?family=Krona+One&display=swap);
 @import url(https://fonts.googleapis.com/css2?family=Krona+One&display=swap);
@@ -19,20 +22,19 @@
           align-items: center;
   -ms-flex-line-pack: distribute;
       align-content: space-around;
-  background-color: #FFFFFF;
+  background-color: #eeeeee;
   height: 100vh;
 }
 
 .auth-page h1 {
   color: #FF5900;
+  font-size: 50px;
 }
 
 .info-bubbles-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
 }
 
 .info-bubble {
@@ -50,8 +52,8 @@
       -ms-flex-align: center;
           align-items: center;
   background-color: #FFF7D6;
-  height: 228px;
-  width: 228px;
+  height: 200px;
+  width: 200px;
   border-radius: 50%;
   border: 3px solid #8A3E00;
   color: #8A3E00;
@@ -72,10 +74,11 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  height: 210px;
-  width: 502px;
+  height: 280px;
+  width: 550px;
   background-color: #D9EDF7;
   color: #005261;
+  font-size: 25px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   border: 3px solid #005261;
@@ -84,33 +87,14 @@
 
 .auth-box input {
   margin-bottom: 25px;
+  margin-left: 8px;
   border: 3px solid #005261;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   border-radius: 19.5px;
+  height: 40px;
 }
 
-.auth-box input ::-webkit-input-placeholder {
-  color: #005261;
-  text-align: center;
-}
-
-.auth-box input :-ms-input-placeholder {
-  color: #005261;
-  text-align: center;
-}
-
-.auth-box input ::-ms-input-placeholder {
-  color: #005261;
-  text-align: center;
-}
-
-.auth-box input ::placeholder {
-  color: #005261;
-  text-align: center;
-}
-
-/* Nav.js */
 .sidenav {
   height: 100vh;
   width: 125px;
@@ -145,12 +129,14 @@
 
 .nav-links #link {
   margin-top: 15px;
+  color: black;
 }
 
-.nav-links .cart-icon {
+.nav-links img {
   height: 50px;
   width: 50px;
   margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 #logout-btn {
@@ -158,12 +144,12 @@
   bottom: 50px;
 }
 
-/* Dash.js */
 .dashboard-component {
-  height: 100vh;
+  height: 100%;
   position: absolute;
-  margin-left: 125px;
   width: 50%;
+  background-color: #D9EDF7;
+  margin-left: 170px;
 }
 
 .food-trucks-container {
@@ -179,8 +165,8 @@
           align-items: center;
   -ms-flex-line-pack: distribute;
       align-content: space-around;
-  width: 300px;
-  margin: 50px 50px;
+  height: 753px;
+  width: 475px;
   margin-left: 170px;
 }
 
@@ -190,25 +176,26 @@
   border: 3px solid #005261;
   background: #FFFFFF;
   border-radius: 50%;
-  height: 100px;
-  width: 100px;
+  height: 150px;
+  width: 150px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin: 20px 20px;
+  padding-left: 5px;
 }
 
-/* Menu.js */
 .menu-component {
-  height: 100vh;
-  background: #D9EDF7;
+  height: 100%;
   position: absolute;
-  margin-left: 125px;
-  width: 100vw;
-  top: 0px;
+  width: 50%;
+  background-color: #D9EDF7;
+  margin-left: 170px;
+}
+
+.menu-items-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -216,14 +203,29 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
 }
 
+.menu-items {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.menu-items button {
+  height: 60px;
+  width: 100px;
+  margin-top: 35px;
+}
+
 .items-bubble {
   height: 100px;
-  width: 372px;
+  width: 380px;
   left: 543px;
   top: 175px;
   background: #FFFFFF;
@@ -232,9 +234,10 @@
           box-sizing: border-box;
   border-radius: 52px;
   margin: 15px 15px;
+  padding-top: 10px;
+  color: #005261;
 }
 
-/* Cart.js */
 .sidenav-right {
   height: 100vh;
   width: 450px;
@@ -250,9 +253,48 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.sidenav-right-header .close-cart-btn {
+  height: 40px;
+  width: 50px;
+  margin-top: 10px;
+}
+
+.cart-contents {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.cart-contents input {
+  height: 50px;
+  width: 50%;
+  margin-bottom: 25px;
+}
+
+.cart-contents .total-display {
+  margin: 20px 20px;
+}
+
+.cart-contents #save-order {
+  margin-top: 20px;
+}
+
+.cart-contents #create-order {
+  margin-bottom: 20px;
 }
 
 .quant-remove {
@@ -264,7 +306,73 @@
           justify-content: center;
 }
 
-/* App.js */
+.quant-remove p {
+  margin-right: 10px;
+}
+
+#stripe-btn {
+  background-color: #FFF7D6;
+  border: none;
+}
+
+.mark-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+#check-mark {
+  background-color: #FFF7D6;
+  height: 45px;
+  width: 45px;
+  margin-top: 15px;
+}
+
+.orders-component {
+  height: 100%;
+  position: absolute;
+  width: 50%;
+  background-color: #D9EDF7;
+  margin-left: 170px;
+}
+
+.profile-component {
+  height: 100%;
+  position: absolute;
+  width: 50%;
+  background-color: #D9EDF7;
+  margin-left: 170px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  width: 100%;
+  text-align: left;
+}
+
+.profile-component .text {
+  width: 45%;
+  text-align: center;
+}
+
+.profile-component button {
+  margin-bottom: 25px;
+}
+
+.change {
+  margin-left: 200px;
+  text-align: center;
+  background-color: #eeeeee;
+}
+
 .App {
   height: 100vh;
   width: 100%;

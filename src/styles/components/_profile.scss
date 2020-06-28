@@ -1,0 +1,24 @@
+@import '../variables';
+
+.profile-component {
+    @include component();
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 100%;
+    text-align: left;
+    .text {
+        width: 45%;
+        text-align: center;
+    }
+    button {
+        margin-bottom: 25px;
+    }
+}
+
+.change {
+    margin-left: 200px;
+    text-align: center;
+    background-color: $lightGray;
+}
+
