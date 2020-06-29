@@ -1,9 +1,9 @@
 import React from 'react'
 
-function Saved(props) {
+function OrderHist(props) { 
     const {item_name, item_price, item_description} = props
-    return (
-        <div className='saved-orders-component'>
+    return ( 
+        <div className='order-hist-component'>
             <div className='items-bubble'>
 
                 <div className='item-pn'>
@@ -18,4 +18,4 @@ function Saved(props) {
     )
 }
 
-export default Saved;
+export default OrderHist;

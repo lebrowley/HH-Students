@@ -31,10 +31,10 @@ export class Profile extends Component {
     handleClick = (e) => {
         e.preventDefault()
         const {email, password} = this.state
-        console.log(email, password)
-        console.log(this.props.auth.user.userId)
+
         axios.put(`/auth/user/${this.props.auth.user.userId}`, {email, password})
         .then(res => {
+            this.props.getUser()
             alert('success')  //toastify
             this.setState({formOpen: false})
         }) 
@@ -61,11 +61,12 @@ export class Profile extends Component {
                             type='text'
                             name='email'
                             placeholder='email'
+                            defaultValue={this.props.auth.user.email}
                             onChange={e => this.handleChange(e)} />
                         <input
                             type='password'
                             name='password'
-                            placeholder='password'
+                            placeholder='new password'
                             onChange={e => this.handleChange(e)} />
 
                         <div className='form-buttons'>

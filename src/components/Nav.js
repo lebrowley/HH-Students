@@ -2,8 +2,7 @@ import React, { useEffect } from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
 import { logoutUser, getUser } from '../redux/authReducer';
-import { getMenuItems } from '../redux/cartReducer'; //getOrders
-import { clearCartState } from '../redux/cartReducer';
+import { getMenuItems, getOrders, clearCartState } from '../redux/cartReducer'; 
 import { openCart } from '../redux/cartActions';
 import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router-dom';
@@ -13,7 +12,7 @@ import hippo from '../hippo.png';
 function Nav(props) {
     useEffect(() => {
         props.getMenuItems()    //if getUser is invoked here, it works, but it doesn't keep user logged in on refresh
-        //getOrders() 
+        props.getOrders(props.auth.user.userId) 
     }, [])
 
     const logout = () => {
@@ -51,5 +50,5 @@ function Nav(props) {
 }
 
 const mapStateToProps = reduxState => reduxState
-const mapDispatchToProps = { logoutUser, openCart, getMenuItems, getUser, clearCartState } //getOrders
+const mapDispatchToProps = { logoutUser, openCart, getMenuItems, getUser, getOrders, clearCartState } 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Nav));

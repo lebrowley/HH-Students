@@ -34,18 +34,6 @@ CREATE TABLE order_items_join (
     quantity INT
 );
 
-
--- CREATE TABLE orders_info (     -- insert new info; this is where order history and current order can be accessed (just select all the orders under the wanted user_id and then order the rows by most recent and limit to the past 5 or so orders)
---     order_id SERIAL PRIMARY KEY,
---     user_id INT REFERENCES users(user_id),
---     item_id INT REFERENCES menu_info(item_id),  --provides access to menu_info- item_name, item_price, item_description??
---     quantity INT,
---     total INT,
---     saved_order BOOLEAN,  -- default false; true if saved; could be a comleted order or an order in the cart
---     in_cart BOOLEAN, -- false is means it has been removed from cart; true means it's in cart and pending
---     completed_order BOOLEAN --will be true when in_cart is false; will be false when in_cart is true
--- ); 
-
 -- CREATE TABLE user_stripe_payment (
 --     id SERIAL PRIMARY KEY,
 --     user_id INT REFRENCES users(user_id),
@@ -89,7 +77,7 @@ VALUES
 (1, 'the patty', 5, 'corned beef, potatoes, cabbage'),
 (2, 'something''s fishy', 3.50, 'two fish tacos'),
 (2, 'surf and turf', 4, 'one steak taco, one fish taco'),
-(2, 'watch your tongue', 3, 'two lenua tacos'),
+(2, 'watch your tongue', 3, 'two lengua tacos'),
 (2, 'squeeeshed taco', 2.5, 'quesadilla'),
 (3, 'the classic', 4, 'cheese, tomato, lettuce'),
 (3, 'the freshman 15', 15, '15 patties. ''Nuf said'),

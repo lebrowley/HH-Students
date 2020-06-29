@@ -12,7 +12,7 @@ function CartItems(props) {
     })
     
     return (
-        <div className='menuItems-component'>
+        <div className='cart-component'>
 
             <div className='items-bubble'>
 

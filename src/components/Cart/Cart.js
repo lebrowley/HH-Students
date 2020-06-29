@@ -106,14 +106,14 @@ class Cart extends Component {
                     </div>
 
                     {this.state.checkoutOpen ?
-                        <button id='stripe-btn' onClick={this.handleClick}>
+                        <div id='stripe-btn' onClick={this.handleClick}>
                             <StripeCheckout
                                 stripeKey='pk_test_51Gvnb2LTyxBsnTeES4eGHhGVkesdPKPfGIZsl9XIjYI2itAHZLv9QTaXLWCvxQJ0H2afElbzS3iKUI9E2JVf1TPB00GBMPu7ZR'
                                 token={this.handleToken}
                                 billingAddress={true}
                                 amount={this.props.cart.total * 100} //to convert to cents
                             />
-                        </button>
+                        </div>
                         : null}
 
 

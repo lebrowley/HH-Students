@@ -2,4 +2,18 @@
 
 .orders-component {
     @include component();
+    width: 100%;
+    
+    h1{
+        text-align: left;
+        margin-left: 300px;
+    }
+}
+
+.content {
+    display: flex;
+    .order_box {
+        min-width: 50%;
+        margin-right: 15px;
+    }
 }

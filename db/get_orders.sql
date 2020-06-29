@@ -1,4 +1,4 @@
-SELECT * 
-FROM orders_info oi JOIN menu_info mi
-ON oi.item_id = mi.item_id
+SELECT * FROM order_info oi
+JOIN order_items_join oij ON oi.order_id = oij.order_id
+JOIN menu_info mi ON mi.item_id = oij.item_id
 WHERE oi.user_id = $1;

@@ -6,8 +6,8 @@ const initialState = {
     menu: [],
     addedItems: [], //in_cart
     total: 0,
-    //saved_order: false, 
-    //completed_order: false,
+    saved_order: false, 
+    completed_order: false,
     orders: [],
     cartOpen: false
 }
@@ -25,8 +25,8 @@ export function getMenuItems() {
     }
 }
 
-export function getOrders() {
-    const cartItems = axios.get('/api/orders')
+export function getOrders(userId) {
+    const cartItems = axios.get(`/api/orders/${userId}`)
 
     return {
         type: GET_ORDERS,
@@ -68,15 +68,11 @@ export default function (state = initialState, action) {
             if (existingItem) {
                 addedItem.quantity += 1
                 addedItem.in_cart = true
-                // addedItem.saved_order = false
-                // addedItem.completed_order = false
                 return { ...state, total: state.total + addedItem.item_price, cartOpen: true }
             }
             else {
                 addedItem.quantity = 1
                 addedItem.in_cart = true
-                // addedItem.saved_order = false
-                // addedItem.completed_order = false
                 let newTotal = state.total + addedItem.item_price
                 return { ...state, addedItems: [...state.addedItems, addedItem], total: newTotal, cartOpen: true }
             }
@@ -109,15 +105,6 @@ export default function (state = initialState, action) {
             }
 
         case SAVE_ORDER:
-            // let saveItems = state.addedItems
-            // saveItems.forEach(item => {
-            //     if(!item.saved_order) {
-            //         item.saved_order = true
-            //     } else if(item.saved_order) {
-            //         item.saved_order = false
-            //     }
-            // })
-            // return {...state, addedItems: saveItems}
             return{...state, saved_order: true}
 
         case COMPLETE_ORDER:
@@ -128,18 +115,11 @@ export default function (state = initialState, action) {
                 } else if(!item.in_cart) {
                     item.in_cart = true
                 }
-
-                // if(item.completed_order) {
-                //     item.completed_order = false
-                // } else if(!item.completed_order) {
-                //     item.completed_order = true
-                // }
             })
-            // return { ...state, addedItems: completeItems }
             return {...state, addedItems: completeItems, completed_order: true}
 
         case CLEAR_ADDED_ITEMS:
-            return {...state, addedItems: [], total: 0}
+            return {...state, addedItems: [], total: 0, saved_order: false, completed_order: false}
 
         case CLEAR_CART_STATE:
             return initialState
