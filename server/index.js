@@ -9,7 +9,14 @@ const express = require('express'),
       menuCtrl = require('./controllers/menuControl'),
       orderCtrl = require('./controllers/orderControl')
 
-app.use(express.static(`${__dirname}/../build`));
+const path = require('path')
+
+app.use(express.static(__dirname + '/../build'));
+
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../build/index.html'))
+})
+
 
 //Top-level Middleware
 app.use(express.json())
