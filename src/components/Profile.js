@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
-import {getUser} from '../../redux/authReducer'
+import {getUser} from '../redux/authReducer';
 
 function Profile(props) {
 

@@ -9,6 +9,8 @@ const express = require('express'),
       menuCtrl = require('./controllers/menuControl'),
       orderCtrl = require('./controllers/orderControl')
 
+app.use(express.static(`${__dirname}/../build`));
+
 //Top-level Middleware
 app.use(express.json())
 app.use(cors())

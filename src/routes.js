@@ -3,7 +3,7 @@ import {Switch, Route} from 'react-router-dom';
 import Auth from './components/Auth';
 import Dash from './components/Dash/Dash';
 import Menu from './components/Menu/Menu';
-import Profile from './components/Profile/Profile';
+import Profile from './components/Profile';
 import Orders from './components/myOrders/Orders';
 import History from './components/myOrders/History';
 import Saved from './components/myOrders/Orders';
