@@ -21,8 +21,6 @@ function OrderHist(props) {
 
             </div>
 
-
-
         </div>
     )
 }

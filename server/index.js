@@ -29,15 +29,15 @@ app.put('/auth/user/:userId', authCtrl.updateUser)      //Profile.js
 
 
 //menus
-app.get('/api/menus', menuCtrl.getMenus)        //Dash.js
-app.get('/api/menu/:menuId', menuCtrl.getMenu)  //Menu.js
-app.get('/api/menu', menuCtrl.getMenuItems)     //Nav.js >> cartReducer
+app.get('/api/menus', menuCtrl.getMenus)                //Dash.js
+app.get('/api/menu/:menuId', menuCtrl.getMenu)          //Menu.js
+app.get('/api/menu', menuCtrl.getMenuItems)             //Nav.js >> cartReducer
 
 //orders
-app.get('/api/orders/:userId', orderCtrl.getOrders)     //fired with getMenuItems when Nav component mounts (thus a session should exist)
-app.post('/api/orders', orderCtrl.createOrder)          //fired on payment completion
+app.get('/api/orders/:userId', orderCtrl.getOrders)     //Nav.js, Orders.js >> cartReducer
+app.post('/api/orders', orderCtrl.createOrder)          //Cart.js     
 
-//checkout
+//checkout                                              //Cart.js, Saved.js
 app.post('/checkout', async(req,res) => {
     console.log(req.body.token.card)
     //pull the needed info off of the card object to store in db

@@ -51,7 +51,6 @@ export class Profile extends Component {
 
                 <div className='buttons'>
                     <button className="bubble" onClick={this.openForm}>change email and password</button>
-                    {/* <button className="bubble" onClick={this.openForm}>change password</button> */}
                     <button className="bubble">delete account</button>
                 </div>
 

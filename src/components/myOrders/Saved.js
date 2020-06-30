@@ -28,8 +28,6 @@ function Saved(props) {
         axios.post('/checkout', { token, address, amount })
             .then(res => {
                 if (res.data.status === 'success') {
-                    // this.handleComplete()
-                    // this.createOrder()
 
                     //toast notification react-toastify package
                     alert('successful payment')
@@ -57,16 +55,17 @@ function Saved(props) {
                 <button onClick={() => props.unSave(order_id)}>Delete</button>
                 <button onClick={() => setCheckOutOpen(true)}>Reorder</button>
 
+                <div><p>total: ${props.total}</p></div>
 
                 {checkoutOpen ?
-                    <div id='stripe-btn-reorder' >  {/*onClick={this.handleClick}*/}
+                    <div id='stripe-btn-reorder' >  
                         <StripeCheckout
                             stripeKey='pk_test_51Gvnb2LTyxBsnTeES4eGHhGVkesdPKPfGIZsl9XIjYI2itAHZLv9QTaXLWCvxQJ0H2afElbzS3iKUI9E2JVf1TPB00GBMPu7ZR'
                             token={handleToken}
                             billingAddress={true}
                             amount={props.total * 100} //to convert to cents
                         />
-                        <div><p>total: ${props.total}</p></div>
+                        
                     </div>
                     : null}
 

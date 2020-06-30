@@ -51,19 +51,15 @@ class Cart extends Component {
 
 
     handleClick = () => {
-        // console.log('button clicked!')
         // clear the cart information from display, reduxState
         this.props.clearAdded()
         this.setState({ checkoutOpen: false, markSave: false, markComplete: false })
     }
 
     handleToken(token, address, amount) {
-        // console.log(token, address, amount)
         axios.post('/checkout', { token, address, amount })
             .then(res => {
                 if (res.data.status === 'success') {
-                    // this.handleComplete()
-                    // this.createOrder()
 
                     //toast notification react-toastify package
                     alert('successful payment')
