@@ -34,25 +34,12 @@ app.get('/api/menu/:menuId', menuCtrl.getMenu)  //Menu.js
 app.get('/api/menu', menuCtrl.getMenuItems)     //Nav.js >> cartReducer
 
 //orders
-app.get('/api/orders/:userId', orderCtrl.getOrders)  //fired with getMenuItems when Nav component mounts (thus a session should exist)
-app.post('/api/orders', orderCtrl.createOrder)  //fired on payment completion
-
-//all of these endpoints now handled in cartActions/cartReducer
-// app.put('api/orders/:orderId', orderCtrl.updateCart) 
-//change in_cart status between true or false; fired on logout, on payment completion
-// app.put('api/orders/:orderId', orderCtrl.updateComplete) 
-//change completed_order status between true or false; fired on payment completion
-// app.put('api/orders/:orderId', orderCtrl.updateSaved) 
-//change saved_order status between true or false; fired on save order button
-
-//other possible edits or endpoints? 
-//app.put('api/orders/:orderId', orderCtrl.updateQuantity) //change item quantity (and thus the total)
-//and other ways of editing a saved order
-//a management endpoint where orders that are not saved and not complete and not in cart are deleted? so the table isn't growing infinitely
+app.get('/api/orders/:userId', orderCtrl.getOrders)     //fired with getMenuItems when Nav component mounts (thus a session should exist)
+app.post('/api/orders', orderCtrl.createOrder)          //fired on payment completion
 
 //checkout
 app.post('/checkout', async(req,res) => {
-    // console.log(req.body.token.card)
+    console.log(req.body.token.card)
     //pull the needed info off of the card object to store in db
     res.status(200).send({status: 'success'})
 })

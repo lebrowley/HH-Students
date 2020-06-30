@@ -24,7 +24,7 @@
 }
 
 @mixin component {
-    height: 100%;
+    height: 100vh;
     position: absolute;
     width: 50%;
     background-color: $blue;
@@ -50,6 +50,7 @@ $blue: #D9EDF7;
 $darkerBlue: #005261;
 $brown: #8A3E00;
 $orange: #FF5900;
+$lightOrange: #FFCCB0;
 $lightGray: rgb(238, 238, 238);
 $white: #FFFFFF;
 $yellow: #FFF7D6;

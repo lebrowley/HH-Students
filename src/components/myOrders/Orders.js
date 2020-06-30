@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-// import axios from 'axios';
 import { connect } from 'react-redux';
 import { getUser } from '../../redux/authReducer';
-import OrderHist from './OrderHist';
+import { getOrders } from '../../redux/cartReducer'; 
+import {Link} from 'react-router-dom';
 import SavedOrders from './Saved';
 
 class Orders extends Component {
@@ -10,55 +10,53 @@ class Orders extends Component {
         super()
 
         this.state = {
-            currentOrder: [],
-            savedOrder: []
+            savedOrders: []
         }
 
     }
 
     componentDidMount() {
         this.props.getUser()
+        this.props.getOrders(this.props.auth.user.userId)
+        this.findSaved(this.props.cart.orders) 
+    }
+
+    findSaved(arr) {
+        let saved = []
+        arr.forEach(element => {
+            if(element[0].saved_order) {
+                saved.push(element)
+            }
+        
+        })
+    this.setState({savedOrders: saved})
     }
 
     render() {
-        const savedOrders = this.props.cart.orders.filter(order => {
-            if (order.saved_order) {
-                return order
-            }
+
+        const orderTotal = this.props.cart.orders.map(order =>{
+            return order[0].total
         })
+
         return (
             <div className='orders-component'>
 
                 <h1>My Orders</h1>
 
                 <div className='content'>
-                    <div className='order-box'>
-                        <p>saved orders</p>
-                        {savedOrders ? <div>{savedOrders.map(order => (
+                    <div className='container'>
+                        <h3>Saved Orders</h3>
+                        {/* {savedOrders ?  : <p>You have no saved orders.</p>} */}
+                        {this.state.savedOrders.map((order, index) => (
                             <SavedOrders
                                 key={order.id}
-                                order_id={order.order_id}
-                                item_id={order.item_id}
-                                item_name={order.item_name}
-                                item_price={order.item_price}
-                                item_description={order.item_description}
-                            />
-                        ))}</div> : <p>You have no saved orders.</p>}
-                    </div>
-
-                    <div className='order-box'>
-                        <p>past orders</p>
-                        {this.props.cart.orders.map(order => (
-                            <OrderHist
-                                key={order.id}
-                                order_id={order.order_id}
-                                item_id={order.item_id}
-                                item_name={order.item_name}
-                                item_price={order.item_price}
-                                item_description={order.item_description}
+                                order={order}
+                                total={orderTotal[index]}
                             />
                         ))}
                     </div>
+
+                   <Link to='/history'><button>View order history</button></Link>
 
                 </div>
 
@@ -69,4 +67,4 @@ class Orders extends Component {
 
 const mapStateToProps = reduxState => reduxState
 
-export default connect(mapStateToProps, { getUser })(Orders);
+export default connect(mapStateToProps, { getUser, getOrders })(Orders);

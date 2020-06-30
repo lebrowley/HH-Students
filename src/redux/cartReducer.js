@@ -1,10 +1,10 @@
 import axios from 'axios';
 import { ADD_TO_CART, REMOVE_ITEM, SUBTRACT_QUANT, ADD_QUANT, CLOSE_CART, OPEN_CART } from './cartActions';
-import { SAVE_ORDER, COMPLETE_ORDER, CLEAR_ADDED_ITEMS } from './orderActions';
+import { SAVE_ORDER, COMPLETE_ORDER, UN_SAVE, CLEAR_ADDED_ITEMS } from './orderActions';
 
 const initialState = {
     menu: [],
-    addedItems: [], //in_cart
+    addedItems: [], 
     total: 0,
     saved_order: false, 
     completed_order: false,

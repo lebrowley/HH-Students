@@ -58,7 +58,7 @@ class Cart extends Component {
     }
 
     handleToken(token, address, amount) {
-        console.log(token, address, amount)
+        // console.log(token, address, amount)
         axios.post('/checkout', { token, address, amount })
             .then(res => {
                 if (res.data.status === 'success') {

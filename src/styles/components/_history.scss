@@ -1,0 +1,17 @@
+@import '../variables';
+
+.history-component {
+    @include component();
+    width: 100%;
+    
+    h1{
+        text-align: left;
+        margin-left: 300px;
+    }
+    h3 {
+       color: $orange; 
+    }
+    .saved_component {
+        display: flex;
+    }
+}

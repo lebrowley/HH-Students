@@ -8,6 +8,12 @@
         text-align: left;
         margin-left: 300px;
     }
+    h3 {
+       color: $orange; 
+    }
+    .saved_component {
+        display: flex;
+    }
 }
 
 .content {
@@ -17,3 +23,41 @@
         margin-right: 15px;
     }
 }
+
+.order-box {
+    box-sizing: border-box;
+    border: 3px solid $orange;
+    margin: 20px 20px;
+    background-color: $white;
+    border-radius: 15px;
+}
+
+.item-quantity {
+    display: flex;
+    .menu-name-container {
+        margin-right: 10px;
+        margin-left: 8px;
+        width: 20%;
+    }
+    button {
+        max-width: 50px;
+        max-height: 50px;
+        margin: 20px 20px;
+    }
+    .items-bubble {
+        background-color: $blue;
+    }
+    #quant-display {
+        background-color: $yellow;
+    }
+}
+
+.saved-order-btns {
+    display: flex;
+    max-height: 45px;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+
+
