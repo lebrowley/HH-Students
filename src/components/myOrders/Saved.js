@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import StripeCheckout from 'react-stripe-checkout';
 import { connect } from 'react-redux';
@@ -8,12 +8,8 @@ import {getUser} from '../../redux/authReducer';
 import SavedItems from './SavedItems';
 
 function Saved(props) {
-    //useState to set stripeOpen default false
+    
     const [checkoutOpen, setCheckOutOpen] = useState(false)
-
-    useEffect(() => {
-        props.getUser()   //on refresh does not keep user logged in
-    }, [])
 
     const nameArr = props.order.map(order => {
         return order.menu_name

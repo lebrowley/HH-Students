@@ -3,7 +3,7 @@
 .auth-page {
     @include flexCenter();
     align-content: space-around;
-    background-color: $lightGray;
+    background-color: $white;
     height: 100vh;
     h1 {
         color: $orange;

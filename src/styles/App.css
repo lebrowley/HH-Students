@@ -6,6 +6,7 @@
 @import url(https://fonts.googleapis.com/css2?family=Krona+One&display=swap);
 @import url(https://fonts.googleapis.com/css2?family=Krona+One&display=swap);
 @import url(https://fonts.googleapis.com/css2?family=Krona+One&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Krona+One&display=swap);
 .auth-page {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -22,7 +23,7 @@
           align-items: center;
   -ms-flex-line-pack: distribute;
       align-content: space-around;
-  background-color: #eeeeee;
+  background-color: #FFFFFF;
   height: 100vh;
 }
 
@@ -145,7 +146,7 @@
 }
 
 .dashboard-component {
-  height: 100%;
+  height: 100vh;
   position: absolute;
   width: 50%;
   background-color: #D9EDF7;
@@ -188,7 +189,7 @@
 }
 
 .menu-component {
-  height: 100%;
+  height: 100vh;
   position: absolute;
   width: 50%;
   background-color: #D9EDF7;
@@ -331,15 +332,92 @@
 }
 
 .orders-component {
-  height: 100%;
+  height: 100vh;
   position: absolute;
   width: 50%;
   background-color: #D9EDF7;
   margin-left: 170px;
+  width: 100%;
+}
+
+.orders-component h1 {
+  text-align: left;
+  margin-left: 300px;
+}
+
+.orders-component h3 {
+  color: #FF5900;
+}
+
+.orders-component .saved_component {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.content .order_box {
+  min-width: 50%;
+  margin-right: 15px;
+}
+
+.order-box {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border: 3px solid #FF5900;
+  margin: 20px 20px;
+  background-color: #FFFFFF;
+  border-radius: 15px;
+}
+
+.item-quantity {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.item-quantity .menu-name-container {
+  margin-right: 10px;
+  margin-left: 8px;
+  width: 20%;
+}
+
+.item-quantity button {
+  max-width: 50px;
+  max-height: 50px;
+  margin: 20px 20px;
+}
+
+.item-quantity .items-bubble {
+  background-color: #EAF4FA;
+}
+
+.item-quantity #quant-display {
+  background-color: #FFF7D6;
+}
+
+.saved-order-btns {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  max-height: 45px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-bottom: 50px;
+}
+
+.saved-order-btns p {
+  margin-right: 15px;
 }
 
 .profile-component {
-  height: 100%;
+  height: 100vh;
   position: absolute;
   width: 50%;
   background-color: #D9EDF7;
@@ -367,10 +445,44 @@
   margin-bottom: 25px;
 }
 
+.buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  max-width: 50%;
+}
+
 .change {
   margin-left: 200px;
   text-align: center;
-  background-color: #eeeeee;
+  background-color: #D9EDF7;
+}
+
+.history-component {
+  height: 100vh;
+  position: absolute;
+  width: 50%;
+  background-color: #D9EDF7;
+  margin-left: 170px;
+  width: 100%;
+}
+
+.history-component h1 {
+  text-align: left;
+  margin-left: 300px;
+}
+
+.history-component h3 {
+  color: #FF5900;
+}
+
+.history-component .saved_component {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .App {

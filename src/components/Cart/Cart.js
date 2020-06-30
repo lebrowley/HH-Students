@@ -29,12 +29,12 @@ class Cart extends Component {
     }
 
     async handleSave() {
-        const save = await this.props.saveOrder()
+        await this.props.saveOrder()
         this.setState({ markSave: true })
     }
 
     async handleComplete() {
-        const complete = await this.props.completeOrder()
+        await this.props.completeOrder()
         this.createOrder()
         this.setState({markComplete: true})
     }

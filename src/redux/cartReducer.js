@@ -4,17 +4,20 @@ import { SAVE_ORDER, COMPLETE_ORDER, UN_SAVE, CLEAR_ADDED_ITEMS } from './orderA
 
 const initialState = {
     menu: [],
-    addedItems: [], 
+    addedItems: [],
     total: 0,
-    saved_order: false, 
+    saved_order: false,
     completed_order: false,
     orders: [],
+    savedOrders: [],
     cartOpen: false
 }
 
 const GET_MENU_ITEMS = 'GET_MENU_ITEMS'
 const GET_ORDERS = 'GET_ORDERS'
+const GET_SAVED_ORDERS = 'GET_SAVED_ORDERS'
 const CLEAR_CART_STATE = 'CLEAR_CART_STATE'
+
 
 export function getMenuItems() {
     const menuItems = axios.get('/api/menu')
@@ -31,6 +34,12 @@ export function getOrders(userId) {
     return {
         type: GET_ORDERS,
         payload: cartItems
+    }
+}
+
+export function getSaved() {
+    return {
+        type: GET_SAVED_ORDERS
     }
 }
 
@@ -55,6 +64,16 @@ export default function (state = initialState, action) {
             return { ...state, orders: action.payload.data }
         case GET_ORDERS + '_REJECTED':
             return initialState
+
+        case GET_SAVED_ORDERS:
+            let saved = []
+            state.orders.forEach(element => {
+                if (element[0].saved_order) {
+                    saved.push(element)
+                }
+
+            })
+            return ({ ...state, savedOrders: saved })
 
         case CLOSE_CART:
             return { ...state, cartOpen: false }
@@ -105,21 +124,21 @@ export default function (state = initialState, action) {
             }
 
         case SAVE_ORDER:
-            return{...state, saved_order: true}
+            return { ...state, saved_order: true }
 
         case COMPLETE_ORDER:
             let completeItems = state.addedItems
             completeItems.forEach(item => {
-                if(item.in_cart) {
+                if (item.in_cart) {
                     item.in_cart = false
-                } else if(!item.in_cart) {
+                } else if (!item.in_cart) {
                     item.in_cart = true
                 }
             })
-            return {...state, addedItems: completeItems, completed_order: true}
+            return { ...state, addedItems: completeItems, completed_order: true }
 
         case CLEAR_ADDED_ITEMS:
-            return {...state, addedItems: [], total: 0, saved_order: false, completed_order: false}
+            return { ...state, addedItems: [], total: 0, saved_order: false, completed_order: false }
 
         case CLEAR_CART_STATE:
             return initialState

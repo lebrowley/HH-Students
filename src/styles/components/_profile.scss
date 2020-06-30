@@ -16,6 +16,12 @@
     }
 }
 
+.buttons {
+    display: flex;
+    justify-content: center;
+    max-width: 50%;
+}
+
 .change {
     margin-left: 200px;
     text-align: center;

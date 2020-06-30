@@ -1,40 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getUser } from '../../redux/authReducer';
-import { getOrders } from '../../redux/cartReducer';
+import { getOrders, getSaved } from '../../redux/cartReducer';
 import { Link } from 'react-router-dom';
 import SavedOrders from './Saved';
 
 class Orders extends Component {
-    constructor() {
-        super()
-
-        this.state = {
-            savedOrders: []
-        }
-
-    }
-
-    componentDidMount() {
-        this.props.getUser()
-        this.props.getOrders(this.props.auth.user.userId)
-        this.findSaved(this.props.cart.orders)
-    }
-
-    findSaved(arr) {
-        let saved = []
-        arr.forEach(element => {
-            if (element[0].saved_order) {
-                saved.push(element)
-            }
-
-        })
-        this.setState({ savedOrders: saved })
-    }
 
     render() {
 
-        const orderTotal = this.state.savedOrders.map(order => {
+        const orderTotal = this.props.cart.savedOrders.map(order => {
             return order[0].total
         })
         
@@ -48,7 +23,7 @@ class Orders extends Component {
                     <div className='container'>
                         <h3>Saved Orders</h3>
                         
-                        <div> {this.state.savedOrders.map((order, index) => (
+                        <div> {this.props.cart.savedOrders.map((order, index) => (
                             <SavedOrders
                                 key={order.id}
                                 order={order}
@@ -69,4 +44,4 @@ class Orders extends Component {
 
 const mapStateToProps = reduxState => reduxState
 
-export default connect(mapStateToProps, { getUser, getOrders })(Orders);
+export default connect(mapStateToProps, { getUser, getOrders, getSaved })(Orders);

@@ -1,37 +1,25 @@
-import React, { Component } from 'react';
+import React, {useState, useEffect} from 'react';
 import { connect } from 'react-redux';
-import {getUser} from '../../redux/authReducer';
 import axios from 'axios';
-// import { getUser } from '../redux/reducer';
 import Bubble from './DashBubble';
 
-class Dashboard extends Component {
-    constructor() {
-        super()
+function Dash(props) {
+    const [menus, setMenus] = useState([])
 
-        this.state = {
-            menus: []
-        }
+    useEffect(() => {
+        getMenus()
+    })
 
-        this.getMenus = this.getMenus.bind(this)
-    }
-
-    componentDidMount() {
-        this.props.getUser()
-        this.getMenus()
-    }
-
-    getMenus() {
+    function getMenus() {
         axios.get('/api/menus')
             .then(res => {
-                this.setState({ menus: res.data })
+                setMenus(res.data)
             })
             .catch(err => console.log(err))
     }
 
-
-    render() {
-        return (
+    return (
+        <div>
             <div className='dashboard-component'>
                 <div className='header-text'>
                     <h1>Feeling Hungry Hungry?</h1>
@@ -40,7 +28,7 @@ class Dashboard extends Component {
 
 
                 <div className="food-trucks-container">
-                    {this.state.menus.map(menu => (
+                    {menus.map(menu => (
                         <Bubble
                             key={menu.menu_id}
                             menuId={menu.menu_id}
@@ -49,10 +37,10 @@ class Dashboard extends Component {
                 </div>
 
             </div>
-        )
-    }
+        </div>
+    )
 }
 
 const mapStateToProps = reduxState => reduxState
-export default connect(mapStateToProps, {getUser})(Dashboard);
+export default connect(mapStateToProps)(Dash);
 
