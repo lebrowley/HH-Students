@@ -13,6 +13,8 @@ function App(props) {
     props.getUser()
   }, [])
 
+  console.log(props)
+
   return (
     
     <div className="App">
@@ -28,32 +30,6 @@ export default connect(mapStateToProps, { getUser, getMenuItems, getOrders, getS
 
 
 
-
-
-
-// class App extends Component {
-//   constructor(props) {
-//     super(props)
-//   }
-
-//   // componentDidMount() {           //if getUser is invoked in this life cycle method, there is an error with the get request
-//   //   this.props.getUser()
-//   // }
-
-//   // componentDidUpdate() { //if getUser is invoked in this life cycle method, getUser is continuously pending/fulfilled/pending/fulfilled
-//   //   this.props.getUser()    //until the refresh and then it terminates and does not keep the user logged in
-//   // }
-
-//   render() {
-//     return (
-//       <div className="App">
-//         {this.props.auth.isLoggedIn ? <Nav /> : null}
-//         {this.props.cart.cartOpen && this.props.auth.isLoggedIn ? <Cart /> : null}
-//         {routes}
-//       </div>
-//     )
-//   }
-// }
 
 
 

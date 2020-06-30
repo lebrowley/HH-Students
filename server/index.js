@@ -13,11 +13,6 @@ const path = require('path')
 
 app.use(express.static(__dirname + '/../build'));
 
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../build/index.html'))
-})
-
-
 //Top-level Middleware
 app.use(express.json())
 app.use(cors())
@@ -51,6 +46,10 @@ app.post('/checkout', async(req,res) => {
     console.log(req.body.token.card)
     //pull the needed info off of the card object to store in db
     res.status(200).send({status: 'success'})
+})
+
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../build/index.html'))
 })
 
 //DB and Server connection

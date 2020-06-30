@@ -71,7 +71,6 @@ export default function (state = initialState, action) {
                 if (element[0].saved_order) {
                     saved.push(element)
                 }
-
             })
             return ({ ...state, savedOrders: saved })
 
