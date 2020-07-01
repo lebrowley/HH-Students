@@ -33,7 +33,7 @@ class Orders extends Component {
                         </div> 
                         
                     </div>
-                    <Link to='/history'><button>View order history</button></Link>
+                    <Link to='/history'><button>History</button></Link>
 
                 </div>
 

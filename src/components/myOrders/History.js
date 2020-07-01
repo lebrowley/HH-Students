@@ -6,7 +6,7 @@ import OrderHist from './OrderHist';
 function History(props) {
 
     return (
-        <div className='history-component'>
+        <div className='orders-component'>
             <h1>Order History</h1>
             <Link to='/saved'><button>Back to saved</button></Link>
             <div className='content'>

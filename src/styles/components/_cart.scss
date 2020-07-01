@@ -7,7 +7,7 @@
     z-index: 1;
     top: 0;
     right:0;
-    background: $yellow;
+    background: $blue;
     overflow-x: hidden;
     
 }
@@ -24,10 +24,8 @@
 
 .cart-contents {
     @include flexCenter();
-    input {
-        height: 50px;
-        width: 50%;
-        margin-bottom: 25px;
+    .items-bubble {
+        background-color: $white;
     }
     .total-display {
         margin: 20px 20px;
@@ -49,7 +47,7 @@
 }
 
 #stripe-btn {
-    background-color: $yellow;
+    background-color: $blue;
     border: none;
 
 }

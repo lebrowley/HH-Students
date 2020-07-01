@@ -2,7 +2,7 @@
 
 .orders-component {
     @include component();
-    width: 100%;
+    width: 50%;
     
     h1{
         text-align: left;
@@ -22,13 +22,16 @@
         min-width: 50%;
         margin-right: 15px;
     }
+    .items-bubble {
+        background-color: $white;
+    }
 }
 
 .order-box {
     box-sizing: border-box;
     border: 3px solid $orange;
     margin: 20px 20px;
-    background-color: $white;
+    background-color: $lightBlue;
     border-radius: 15px;
 }
 
@@ -43,9 +46,7 @@
         max-width: 50px;
         max-height: 50px;
         margin: 20px 20px;
-    }
-    .items-bubble {
-        background-color: $lightBlue;
+        font-size: 15px;
     }
     #quant-display {
         background-color: $yellow;

@@ -332,7 +332,7 @@
 }
 
 .sidenav {
-  height: 100vh;
+  height: 100%;
   width: 8%;
   min-width: 125px;
   position: fixed;
@@ -435,7 +435,7 @@
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   border: 3px solid #005261;
-  background: #FFFFFF;
+  background: whitesmoke;
   border-radius: 50%;
   height: 150px;
   width: 150px;
@@ -451,7 +451,11 @@
 }
 
 .food-truck-bubble:hover {
-  background-color: #eeeeee;
+  background-color: #FFF7D6;
+}
+
+.food-truck-bubble #link {
+  color: #005261;
 }
 
 .menu-component {
@@ -492,7 +496,7 @@
   width: 380px;
   left: 543px;
   top: 175px;
-  background: #FFFFFF;
+  background: whitesmoke;
   border: 3px solid #005261;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -509,7 +513,7 @@
   z-index: 1;
   top: 0;
   right: 0;
-  background: #FFF7D6;
+  background: #D9EDF7;
   overflow-x: hidden;
 }
 
@@ -543,10 +547,8 @@
           align-items: center;
 }
 
-.cart-contents input {
-  height: 50px;
-  width: 50%;
-  margin-bottom: 25px;
+.cart-contents .items-bubble {
+  background-color: #FFFFFF;
 }
 
 .cart-contents .total-display {
@@ -575,7 +577,7 @@
 }
 
 #stripe-btn {
-  background-color: #FFF7D6;
+  background-color: #D9EDF7;
   border: none;
 }
 
@@ -597,7 +599,7 @@
 .orders-component {
   width: 50%;
   margin-left: 170px;
-  width: 100%;
+  width: 50%;
 }
 
 .orders-component h1 {
@@ -626,12 +628,16 @@
   margin-right: 15px;
 }
 
+.content .items-bubble {
+  background-color: #FFFFFF;
+}
+
 .order-box {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   border: 3px solid #FF5900;
   margin: 20px 20px;
-  background-color: #FFFFFF;
+  background-color: #EAF4FA;
   border-radius: 15px;
 }
 
@@ -651,10 +657,7 @@
   max-width: 50px;
   max-height: 50px;
   margin: 20px 20px;
-}
-
-.item-quantity .items-bubble {
-  background-color: #EAF4FA;
+  font-size: 15px;
 }
 
 .item-quantity #quant-display {
