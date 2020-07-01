@@ -13,8 +13,6 @@ function App(props) {
     props.getUser()
   }, [])
 
-  console.log(props)
-
   return (
     
     <div className="App">

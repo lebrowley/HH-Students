@@ -2,11 +2,8 @@
 
 .profile-component {
     @include component();
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    width: 100%;
-    text-align: left;
+    @include flexCenter();
+    width: 75%;
     .text {
         width: 45%;
         text-align: center;
@@ -23,8 +20,40 @@
 }
 
 .change {
-    margin-left: 200px;
     text-align: center;
-    background-color: $blue;
+    background-color: $lightBlue;
 }
 
+//-----------------------------------------------media queries--------------------------------------------//
+@media (max-width: $phone) {
+   .text {
+       font-size: 15px;
+   }
+   .sidenav {
+       height: 100%;
+   }
+   #change, #delete {
+    font-size: 15px;
+}
+}
+
+@media (min-width: $phone) and (max-width: $tablet) {
+    .text {
+        font-size: 15px;
+    }
+    .sidenav {
+        height: 100%;
+    }
+    #change, #delete {
+        font-size: 15px;
+    }
+}
+
+@media (min-width: $tablet) and (max-width: $desktop) {
+    .sidenav {
+        height: 100%;
+    }
+    #change, #delete {
+        font-size: 15px;
+    }
+}

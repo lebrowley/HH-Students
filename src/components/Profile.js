@@ -29,8 +29,8 @@ function Profile(props) {
             </div>
 
             <div className='buttons'>
-                <button className="bubble" onClick={() => setForm(true)}>change email and password</button>
-                <button className="bubble">delete account</button>
+                <button id='change' onClick={() => setForm(true)}>change email and password</button>
+                <button id='delete'>delete account</button>
             </div>
 
             {formOpen ? <div className='auth-box change'>

@@ -2,18 +2,16 @@
 
 .dashboard-component {
     @include component();
+    @include flexCenter();
 }
 
 .food-trucks-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    align-items: center;
     align-content: space-around;
     height: 753px;
     width: 475px;
-    // margin: 50px 50px;
-    margin-left: 170px;
 }
 
 .food-truck-bubble {

@@ -2,7 +2,8 @@
 
 .sidenav {
     height: 100vh;
-    width: 125px;
+    width: 8%;
+    min-width: 125px;
     position: fixed;
     z-index: 1;
     top: 0;
@@ -34,3 +35,22 @@
     position: absolute;
     bottom: 50px;
 }
+
+//-----------------------------------------------media queries--------------------------------------------//
+@media (max-width: $phone) {
+    .sidenav {
+        height: 100%;
+    }
+ }
+ 
+ @media (min-width: $phone) and (max-width: $tablet) {
+     .sidenav {
+         height: 100%;
+     }
+ }
+ 
+ @media (min-width: $tablet) and (max-width: $desktop) {
+     .sidenav {
+         height: 100%;
+     }
+ }

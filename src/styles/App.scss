@@ -1,4 +1,5 @@
 @import "./components/auth";
+@import "./components/about";
 @import "./components/nav";
 @import "./components/dash";
 @import "./components/menu";
@@ -9,13 +10,7 @@
 @import "./variables";
 
 .App {
-    height: 100vh;
-    width: 100%;
-    margin: 0;
     text-align: center;
-    vertical-align: baseline;
-    border: 0;
-    background-color: $blue;
     button {
         @include btnStyle($white);
     }

@@ -7,6 +7,7 @@
 @import url(https://fonts.googleapis.com/css2?family=Krona+One&display=swap);
 @import url(https://fonts.googleapis.com/css2?family=Krona+One&display=swap);
 @import url(https://fonts.googleapis.com/css2?family=Krona+One&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Krona+One&display=swap);
 .auth-page {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -23,13 +24,17 @@
           align-items: center;
   -ms-flex-line-pack: distribute;
       align-content: space-around;
-  background-color: #FFFFFF;
   height: 100vh;
+  width: 100vw;
 }
 
 .auth-page h1 {
   color: #FF5900;
   font-size: 50px;
+}
+
+.auth-page #link {
+  margin-top: 15px;
 }
 
 .info-bubbles-container {
@@ -77,7 +82,7 @@
           align-items: center;
   height: 280px;
   width: 550px;
-  background-color: #D9EDF7;
+  background-color: #EAF4FA;
   color: #005261;
   font-size: 25px;
   -webkit-box-sizing: border-box;
@@ -96,9 +101,240 @@
   height: 40px;
 }
 
+@media (max-width: 480px) {
+  .auth-page {
+    height: 100%;
+    width: 100%;
+  }
+  .auth-page h1 {
+    font-size: 25px;
+  }
+  .info-bubble {
+    height: 100px;
+    width: 100px;
+    font-size: 10px;
+  }
+  .auth-box {
+    height: 175px;
+    width: 400px;
+    font-size: 15px;
+    padding-bottom: 10px;
+  }
+  .auth-box input {
+    border: 3px solid #005261;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    border-radius: 19.5px;
+    height: 40px;
+  }
+  #register, #login {
+    height: 40px;
+    width: 40x;
+    font-size: 10px;
+    padding-bottom: 5px;
+  }
+  #link {
+    font-size: 10px;
+  }
+}
+
+@media (min-width: 480px) and (max-width: 768px) {
+  .auth-page {
+    height: 100%;
+    width: 100%;
+  }
+  .auth-page h1 {
+    font-size: 35px;
+  }
+  .info-bubble {
+    height: 150px;
+    width: 150px;
+    font-size: 12px;
+  }
+  .auth-box {
+    height: 225px;
+    width: 400px;
+    font-size: 20px;
+    padding-bottom: 10px;
+  }
+  .auth-box input {
+    border: 3px solid #005261;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    border-radius: 19.5px;
+    height: 40px;
+  }
+  #register, #login {
+    height: 45px;
+    width: 45x;
+    font-size: 15px;
+  }
+  #link {
+    font-size: 15px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .auth-page {
+    height: 100%;
+    width: 100%;
+  }
+  .auth-page h1 {
+    font-size: 40px;
+  }
+  .info-bubble {
+    height: 150px;
+    width: 150px;
+    font-size: 12px;
+  }
+  .auth-box {
+    height: 225px;
+    width: 450px;
+    font-size: 20px;
+    padding-bottom: 10px;
+  }
+  .auth-box input {
+    border: 3px solid #005261;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    border-radius: 19.5px;
+    height: 40px;
+  }
+  #register, #login {
+    height: 45px;
+    width: 45x;
+    font-size: 15px;
+  }
+  #link {
+    font-size: 15px;
+  }
+}
+
+.component {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  justify-content: center;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-radius: 15px;
+  width: 60%;
+  margin: 80px 275px;
+  background-color: #FFFFFF;
+}
+
+.component h1 {
+  color: #FF5900;
+  font-size: 28px;
+}
+
+.component span {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.about {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.about .items-bubble {
+  height: 125px;
+  width: 525px;
+  background-color: #eeeeee;
+}
+
+@media (max-width: 480px) {
+  .component {
+    width: 100%;
+    margin: 70px 2px;
+    background-color: #FFFFFF;
+  }
+  .component h1 {
+    font-size: 25px;
+  }
+  .component span {
+    font-size: 15px;
+  }
+  .about .items-bubble {
+    height: 100px;
+    width: 450px;
+    padding: 5px 5px;
+  }
+  .about p {
+    font-size: 12px;
+  }
+}
+
+@media (min-width: 480px) and (max-width: 768px) {
+  .component {
+    width: 80%;
+    margin: 40px 50px;
+    background-color: #FFFFFF;
+  }
+  .component h1 {
+    font-size: 20px;
+  }
+  .component span {
+    font-size: 15px;
+  }
+  .about .items-bubble {
+    height: 100px;
+    width: 375px;
+    padding: 5px 5px;
+  }
+  .about p {
+    font-size: 12px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .component {
+    width: 70%;
+    margin: 50px 125px;
+    background-color: #FFFFFF;
+  }
+  .component h1 {
+    font-size: 23px;
+  }
+  .component span {
+    font-size: 18px;
+  }
+  .about .items-bubble {
+    height: 100px;
+    width: 465px;
+    padding: 5px 5px;
+  }
+  .about p {
+    font-size: 13px;
+  }
+}
+
 .sidenav {
   height: 100vh;
-  width: 125px;
+  width: 8%;
+  min-width: 125px;
   position: fixed;
   z-index: 1;
   top: 0;
@@ -145,12 +381,40 @@
   bottom: 50px;
 }
 
+@media (max-width: 480px) {
+  .sidenav {
+    height: 100%;
+  }
+}
+
+@media (min-width: 480px) and (max-width: 768px) {
+  .sidenav {
+    height: 100%;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .sidenav {
+    height: 100%;
+  }
+}
+
 .dashboard-component {
-  height: 100vh;
-  position: absolute;
   width: 50%;
-  background-color: #D9EDF7;
   margin-left: 170px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .food-trucks-container {
@@ -161,14 +425,10 @@
       flex-wrap: wrap;
   -ms-flex-pack: distribute;
       justify-content: space-around;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   -ms-flex-line-pack: distribute;
       align-content: space-around;
   height: 753px;
   width: 475px;
-  margin-left: 170px;
 }
 
 .food-truck-bubble {
@@ -185,14 +445,17 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding-left: 5px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.food-truck-bubble:hover {
+  background-color: #eeeeee;
 }
 
 .menu-component {
-  height: 100vh;
-  position: absolute;
   width: 50%;
-  background-color: #D9EDF7;
   margin-left: 170px;
 }
 
@@ -240,8 +503,8 @@
 }
 
 .sidenav-right {
-  height: 100vh;
-  width: 450px;
+  height: 100%;
+  width: 30%;
   position: fixed;
   z-index: 1;
   top: 0;
@@ -332,10 +595,7 @@
 }
 
 .orders-component {
-  height: 100vh;
-  position: absolute;
   width: 50%;
-  background-color: #D9EDF7;
   margin-left: 170px;
   width: 100%;
 }
@@ -417,10 +677,7 @@
 }
 
 .profile-component {
-  height: 100vh;
-  position: absolute;
   width: 50%;
-  background-color: #D9EDF7;
   margin-left: 170px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -429,11 +686,13 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  width: 100%;
-  text-align: left;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 75%;
 }
 
 .profile-component .text {
@@ -456,16 +715,45 @@
 }
 
 .change {
-  margin-left: 200px;
   text-align: center;
-  background-color: #D9EDF7;
+  background-color: #EAF4FA;
+}
+
+@media (max-width: 480px) {
+  .text {
+    font-size: 15px;
+  }
+  .sidenav {
+    height: 100%;
+  }
+  #change, #delete {
+    font-size: 15px;
+  }
+}
+
+@media (min-width: 480px) and (max-width: 768px) {
+  .text {
+    font-size: 15px;
+  }
+  .sidenav {
+    height: 100%;
+  }
+  #change, #delete {
+    font-size: 15px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .sidenav {
+    height: 100%;
+  }
+  #change, #delete {
+    font-size: 15px;
+  }
 }
 
 .history-component {
-  height: 100vh;
-  position: absolute;
   width: 50%;
-  background-color: #D9EDF7;
   margin-left: 170px;
   width: 100%;
 }
@@ -486,13 +774,7 @@
 }
 
 .App {
-  height: 100vh;
-  width: 100%;
-  margin: 0;
   text-align: center;
-  vertical-align: baseline;
-  border: 0;
-  background-color: #D9EDF7;
 }
 
 .App button {
@@ -509,6 +791,10 @@
   font-family: 'Krona One', sans-serif;
   font-size: 16px;
   margin-right: 10px;
+}
+
+.App button:hover {
+  background-color: #FAD1BB;
 }
 
 #link {

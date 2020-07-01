@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
+import {Link} from 'react-router-dom';
 import { loginUser } from '../redux/authReducer';
 
 
@@ -80,7 +81,7 @@ class Auth extends Component {
 
                 </div>
 
-                <h2>Tell me more</h2>
+                <Link id='link' to='/about'><h2>Tell me more</h2></Link>
             </div>
 
         )

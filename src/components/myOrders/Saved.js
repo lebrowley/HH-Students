@@ -48,7 +48,7 @@ function Saved(props) {
             </div>
 
             <div className='saved-order-btns'>
-                <button onClick={() => props.unSave(order_id)}>Delete</button>
+                {/* <button onClick={() => props.unSave(order_id)}>Delete</button> */}
                 <button onClick={() => setCheckOutOpen(true)}>Reorder</button>
 
                 <div><p>total: ${props.total}</p></div>

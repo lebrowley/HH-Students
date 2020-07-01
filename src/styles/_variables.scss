@@ -1,5 +1,26 @@
 @import url(https://fonts.googleapis.com/css2?family=Krona+One&display=swap);
 
+// color variables
+$blue: #D9EDF7;
+$lightBlue: #EAF4FA;
+$darkerBlue: #005261;
+$brown: #8A3E00;
+$orange: #FF5900;
+$lightOrange: #FAD1BB;
+$lightGray: rgb(238, 238, 238);
+$white: #FFFFFF;
+$yellow: #FFF7D6;
+
+//shape variables
+$circle: 50%;
+$oval: 19.5px;
+
+//breakpoints -- max widths
+$phone: 480px;
+$tablet: 768px;
+$desktop: 1024px;  
+
+
 //mixins
 @mixin btnStyle ($bgColor) {
     background-color: $bgColor;
@@ -14,6 +35,9 @@
     font-family: 'Krona One', sans-serif;
     font-size: 16px;
     margin-right: 10px;
+    &:hover {
+        background-color: $lightOrange;
+    }
 }
 
 @mixin flexCenter {
@@ -24,11 +48,8 @@
 }
 
 @mixin component {
-    height: 100vh;
-    position: absolute;
     width: 50%;
-    background-color: $blue;
-    margin-left: 170px;
+   margin-left: 170px;
 }
 
 @mixin bubble {
@@ -40,25 +61,12 @@
     width: 150px;
     display: flex;
     align-items: center;
-    // margin-bottom: 10px;
-    // margin-right: 3px;
-    padding-left: 5px;
+    justify-content: center;
+    &:hover {
+        background-color: $lightGray;
+    }
 }
 
-// color variables
-$blue: #D9EDF7;
-$lightBlue: #EAF4FA;
-$darkerBlue: #005261;
-$brown: #8A3E00;
-$orange: #FF5900;
-$lightOrange: #FFCCB0;
-$lightGray: rgb(238, 238, 238);
-$white: #FFFFFF;
-$yellow: #FFF7D6;
-
-//shape variables
-$circle: 50%;
-$oval: 19.5px;
 
 
 
