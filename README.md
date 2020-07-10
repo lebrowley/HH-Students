@@ -48,6 +48,7 @@ Icebox features
 - checkout sequence
 <img src='./images/views/3.png'>
 <img src='./images/views/5.png'>
+<img src='./images/views/11.png'>
 <img src='./images/views/6.png'>
 - orders view (/myorders)
 <img src='./images/views/4.png'>
