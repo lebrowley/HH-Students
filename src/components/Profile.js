@@ -15,11 +15,11 @@ function Profile(props) {
         axios.put(`/auth/user/${props.auth.user.userId}`, { email, password })
             .then(res => {
                 props.getUser()
-                alert('success')  //toastify
+                alert('success') //toastify
                 setForm(false)
             })
             .catch(err => console.log(err))
-    }
+        }
 
     return (
         <div className='profile-component'>

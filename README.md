@@ -38,26 +38,33 @@ Icebox features
 
 ### Views/Routes
 - login view (/)
-<img src='./images/views/login.png'>
+<img src='./images/views/1.png'>
+- about view (/about)
+<img src='./images/views/7.png'>
 - menu dashboard view (/dashboard)
-<img src='./images/views/dashboard.png'>
-- individual menu view (/menu${name}) (6 total)
-<img src='./images/views/menu.png'>
-<img src='./images/views/menu_withcart.png'>
-- checkout view (/pay)
-<img src='./images/views/checkout.png'>
+<img src='./images/views/2.png'>
+- individual menu view (/menu/:menuId) 
+<img src='./images/views/8.png'>
+- checkout sequence
+<img src='./images/views/3.png'>
+<img src='./images/views/5.png'>
+<img src='./images/views/6.png'>
 - orders view (/myorders)
-<img src='./images/views/my_orders.png'>
+<img src='./images/views/4.png'>
+- order history view (/history)
+<img src='./images/views/9.png'>
+- profile view (/profile)
+<img src='./images/views/10.png'>
 
 ### Component Tree
-<img src='./images/component_tree.png'>
+<img src='./images/tree.png'>
 
 ### Endpoints/Controllers
-<img src='./images/endpoints.png'>
-<img src='./images/controllers.png'>
+<img src='./images/end_points.png'>
+<img src='./images/controls.png'>
 
 ### Schemas/Queries/Database
-<img src='./images/schemas_queries.png'>
-<img src='./images/database.png'>
+<img src='./images/db.png'>
+
 
 
